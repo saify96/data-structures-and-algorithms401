@@ -1,6 +1,6 @@
 public class LinkedList {
-
     Node head;
+
     public void insert(int value){
         Node newItem = new Node(value);
         if(head==null){
@@ -20,12 +20,16 @@ public class LinkedList {
         }
         return false;
     }
-//    public static String toString(){
-//        while(!=null){
-//            System.out.print("{" + +"} -> ");
-//        }
-//   }
-
-
+    public String toString(){
+        String data="";
+        Node current = head;
+        while(current!=null){
+            data += "{" + current.value + "} -> ";
+            current=current.next;
+        }
+        System.out.print(data);
+        System.out.println("NULL");
+        return data;
+   }
 }
 

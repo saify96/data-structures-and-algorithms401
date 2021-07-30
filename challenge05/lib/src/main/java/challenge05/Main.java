@@ -12,7 +12,8 @@ public class Main {
         while (current != null) {
                 System.out.println(current.value);
             current = current.next;
-
         }
-        }
+        System.out.println(firstLinkedList.includes(11));
+        firstLinkedList.toString();
     }
+}
