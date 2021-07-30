@@ -2,7 +2,7 @@ class Main {
   public static void main(String[] args) {
     System.out.println("Hello world!");
     int[]array={11, 22, 33, 44, 55, 66, 77};
-    int n =90;
+    int n =66;
     System.out.println(binarySearch(array,n));
   }
   public static int binarySearch(int[] array , int n){
@@ -14,7 +14,7 @@ class Main {
       if(n<array[minIdx]||n>array[maxIdx]){
         System.out.println("your number is out of the array boundaries" );
         return -1;      
-      }else if (Math.pow(2, iteration)> array.length){
+      }else if (Math.pow(2, iteration)> array.length+1){
         System.out.println("your number is not in the array" );
         return -1;      
       }
