@@ -7,6 +7,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MainTest {
+
+
+    ///challenge 06 tests
     @Test public void testAppendMethod() {
         LinkedList testLL = new LinkedList();
         testLL.insert(1);
@@ -43,5 +46,52 @@ public class MainTest {
         testLL.insertAfter(5,777);
         assertEquals("{1} -> {2} -> {3} -> {666} -> {4} -> {5} -> {777} -> NULL",testLL.toString());
     }
+    ///challenge 07 tests
+    @Test public void testlab07() {
+        LinkedList testLL = new LinkedList();
+        testLL.insert(1);
+        testLL.append(2);
+        testLL.append(3);
+        testLL.append(4);
+        testLL.append(5);
+        assertEquals(3,testLL.kthFromEnd(2));
+    }
+
+    @Test public void testlab0701() {
+        LinkedList testLL = new LinkedList();
+        testLL.insert(1);
+        assertEquals(1,testLL.kthFromEnd(0));
+    }
+
+    @Test public void testlab0702() {
+        LinkedList testLL = new LinkedList();
+        testLL.insert(1);
+        testLL.append(2);
+        testLL.append(3);
+        testLL.append(4);
+        testLL.append(5);
+        assertEquals(1,testLL.kthFromEnd(4));
+    }
+
+//    @Test public void testlab0703() {
+//        LinkedList testLL = new LinkedList();
+//        testLL.insert(1);
+//        testLL.append(2);
+//        testLL.append(3);
+//        testLL.append(4);
+//        testLL.append(5);
+//        assertEquals("out of boundaries",testLL.kthFromEnd(-5));
+//    }
+
+//    @Test public void testlab0704() {
+//        LinkedList testLL = new LinkedList();
+//        testLL.insert(1);
+//        testLL.append(2);
+//        testLL.append(3);
+//        testLL.append(4);
+//        testLL.append(5);
+////        assertThrows(class IndexOutOfBoundsException);
+////        assertth("Exception in thread \"main\" java.lang.IndexOutOfBoundsException: out of boundaries",testLL.kthFromEnd(10));
+//    }
 
 }
