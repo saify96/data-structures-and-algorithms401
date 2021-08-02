@@ -28,10 +28,10 @@ public class LinkedList {
         String data = "";
         Node current = head;
         while (current != null) {
-            data = data+ "{" + current.value + "} -> ";
+            data = data + "{" + current.value + "} -> ";
             current = current.next;
         }
-        data +="NULL";
+        data += "NULL";
         System.out.print(data);
         return data;
     }
@@ -49,19 +49,19 @@ public class LinkedList {
     public void insertBefore(int value, int newValue) {
         Node newItem = new Node(newValue);
         Node current = head;
-        if (head.value== value){
-            newItem.next=head;
+        if (head.value == value) {
+            newItem.next = head;
             head = newItem;
             return;
         }
-            while (current != null) {
-                if (current.next.value == value){
-                    newItem.next=current.next;
-                    current.next=newItem;
-                    return;
-                }
-                current = current.next;
+        while (current != null) {
+            if (current.next.value == value) {
+                newItem.next = current.next;
+                current.next = newItem;
+                return;
             }
+            current = current.next;
+        }
 
     }
 
@@ -69,12 +69,33 @@ public class LinkedList {
         Node newItem = new Node(newValue);
         Node current = head;
         while (current != null) {
-            if (current.value == value){
-                newItem.next=current.next;
-                current.next=newItem;
+            if (current.value == value) {
+                newItem.next = current.next;
+                current.next = newItem;
             }
             current = current.next;
         }
+    }
+
+    public int kthFromEnd(int k) {
+        int counter = 0;
+        Node current = head;
+        while (current != null) {
+            current = current.next;
+            counter++;
+        }
+        int idx;
+        idx = counter - k - 1;
+        current = head;
+        for (int i = 0; i < idx; i++) {
+            current = current.next;
+        }
+        if (k > counter - 1 || k < 0) {
+            throw new IndexOutOfBoundsException("out of boundaries");
+        } else if (counter == 1) {
+            System.out.println("you have only one value in the list");
+        }
+        return current.value;
     }
 }
 
