@@ -6,10 +6,10 @@ package challenge05;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LibraryTest {
+public class MainTest {
     @Test public void testInsertMethod() {
         LinkedList testtLinkedList = new LinkedList();
-        firstLinkedList.insert(5);
-        assertTrue(5, firstLinkedList.insert());
+        testtLinkedList.insert(5);
+        assertEquals("{5} -> NULL", testtLinkedList.toString());
     }
 }
