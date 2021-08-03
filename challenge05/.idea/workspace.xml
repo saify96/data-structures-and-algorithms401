@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="278ce587-5bfb-4233-9deb-cdd556862cac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../challenge06/.idea/challenge06.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/test/java/challenge05/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/test/java/challenge05/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +64,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Gradle.MainTest.testZipListsNotEqualLength">
     <configuration name="MainTest.testExceptions" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">

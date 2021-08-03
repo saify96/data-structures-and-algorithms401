@@ -103,7 +103,6 @@ public class LinkedList {
 
     public LinkedList zipLists(LinkedList x, LinkedList y) {
         LinkedList zippedList = new LinkedList();
-
         if (x.head == null && y.head == null) {
             System.out.println("The lists are empty");
         } else if (x.head == null) {
