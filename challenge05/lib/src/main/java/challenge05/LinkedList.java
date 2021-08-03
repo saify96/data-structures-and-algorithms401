@@ -2,7 +2,6 @@ package challenge05;
 
 public class LinkedList {
     Node head;
-
     public void insert(int value) {
         Node newItem = new Node(value);
         if (head == null) {
@@ -62,7 +61,6 @@ public class LinkedList {
             }
             current = current.next;
         }
-
     }
 
     public void insertAfter(int value, int newValue) {
