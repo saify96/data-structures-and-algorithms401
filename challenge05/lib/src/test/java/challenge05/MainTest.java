@@ -7,7 +7,29 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MainTest {
-    
+    //challenge05 tests
+    @Test public void testInsertMethod() {
+        LinkedList firstLinkedList = new LinkedList();
+        firstLinkedList.insert(5);
+        assertEquals("{5} -> NULL", firstLinkedList.toString());
+    }
+
+    @Test public void testIncludesMethod() {
+        LinkedList firstLinkedList = new LinkedList();
+        firstLinkedList.insert(5);
+        firstLinkedList.insert(6);
+        firstLinkedList.insert(7);
+        assertEquals(true, firstLinkedList.includes(6));
+        assertEquals(false, firstLinkedList.includes(8));
+    }
+
+    @Test public void testToStringMethod() {
+        LinkedList firstLinkedList = new LinkedList();
+        firstLinkedList.insert(5);
+        firstLinkedList.insert(6);
+        firstLinkedList.insert(7);
+        assertEquals("{7} -> {6} -> {5} -> NULL", firstLinkedList.toString());
+    }
 
     ///challenge 06 tests
     @Test public void testAppendMethod() {
