@@ -5,8 +5,8 @@ public class Main {
         System.out.println("bla bla");
         LinkedList firstLinkedList = new LinkedList();
         firstLinkedList.insert(5);
-//        firstLinkedList.insert(6);
-//        firstLinkedList.insert(7);
+        firstLinkedList.insert(6);
+        firstLinkedList.insert(7);
 //        firstLinkedList.insert(8);
 //        firstLinkedList.insert(9);
 //        firstLinkedList.insert(10);
