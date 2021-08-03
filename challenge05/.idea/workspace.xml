@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="278ce587-5bfb-4233-9deb-cdd556862cac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/test/java/challenge05/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/test/java/challenge05/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
