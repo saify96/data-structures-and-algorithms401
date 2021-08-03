@@ -69,7 +69,7 @@ public class MainTest {
         assertEquals("{1} -> {2} -> {3} -> {666} -> {4} -> {5} -> {777} -> NULL",testLL.toString());
     }
     ///challenge 07 tests
-    @Test public void testlab07() {
+    @Test public void testKInMiddle() {
         LinkedList testLL = new LinkedList();
         testLL.insert(1);
         testLL.append(2);
@@ -79,13 +79,13 @@ public class MainTest {
         assertEquals(3,testLL.kthFromEnd(2));
     }
 
-    @Test public void testlab0701() {
+    @Test public void testLengthEqualsOne() {
         LinkedList testLL = new LinkedList();
         testLL.insert(1);
         assertEquals(1,testLL.kthFromEnd(0));
     }
 
-    @Test public void testlab0702() {
+    @Test public void testLengthEqualsLength() {
         LinkedList testLL = new LinkedList();
         testLL.insert(1);
         testLL.append(2);
@@ -95,25 +95,15 @@ public class MainTest {
         assertEquals(1,testLL.kthFromEnd(4));
     }
 
-//    @Test public void testlab0703() {
-//        LinkedList testLL = new LinkedList();
-//        testLL.insert(1);
-//        testLL.append(2);
-//        testLL.append(3);
-//        testLL.append(4);
-//        testLL.append(5);
-//        assertEquals("out of boundaries",testLL.kthFromEnd(-5));
-//    }
-
-//    @Test public void testlab0704() {
-//        LinkedList testLL = new LinkedList();
-//        testLL.insert(1);
-//        testLL.append(2);
-//        testLL.append(3);
-//        testLL.append(4);
-//        testLL.append(5);
-////        assertThrows(class IndexOutOfBoundsException);
-////        assertth("Exception in thread \"main\" java.lang.IndexOutOfBoundsException: out of boundaries",testLL.kthFromEnd(10));
-//    }
+    @Test public void testExceptions() {
+        LinkedList testLL = new LinkedList();
+        testLL.insert(1);
+        testLL.append(2);
+        testLL.append(3);
+        testLL.append(4);
+        testLL.append(5);
+        assertThrows(NullPointerException .class ,()-> testLL.kthFromEnd(-5));
+        assertThrows(IndexOutOfBoundsException .class ,()-> testLL.kthFromEnd(20));
+    }
 
 }

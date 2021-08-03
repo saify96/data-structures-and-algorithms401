@@ -75,7 +75,7 @@ public class LinkedList {
         }
     }
 
-    public int kthFromEnd(int k) {
+    public int kthFromEnd(int k) throws IndexOutOfBoundsException {
         int counter = 0;
         Node current = head;
         while (current != null) {
@@ -89,6 +89,7 @@ public class LinkedList {
             current = current.next;
         }
         if (k > counter - 1 || k < 0) {
+//            System.out.println(counter);
             throw new IndexOutOfBoundsException("out of boundaries");
         } else if (counter == 1) {
             System.out.println("you have only one value in the list");
