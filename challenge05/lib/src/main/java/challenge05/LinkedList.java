@@ -2,6 +2,7 @@ package challenge05;
 
 public class LinkedList {
     Node head;
+
     public void insert(int value) {
         Node newItem = new Node(value);
         if (head == null) {
@@ -31,18 +32,22 @@ public class LinkedList {
             current = current.next;
         }
         data += "NULL";
-        System.out.print(data);
         return data;
     }
 
     public void append(int value) {
         Node current = head;
-        while (current.next != null) {
-            current = current.next;
+        if (current == null) {
+            Node newItem = new Node(value);
+            head = newItem;
+        } else if (current != null) {
+            while (current.next != null) {
+                current = current.next;
+            }
+            Node newItem = new Node(value);
+            newItem.next = null;
+            current.next = newItem;
         }
-        Node newItem = new Node(value);
-        newItem.next = null;
-        current.next = newItem;
     }
 
     public void insertBefore(int value, int newValue) {
@@ -89,12 +94,47 @@ public class LinkedList {
             current = current.next;
         }
         if (k > counter - 1 || k < 0) {
-//            System.out.println(counter);
             throw new IndexOutOfBoundsException("out of boundaries");
         } else if (counter == 1) {
             System.out.println("you have only one value in the list");
         }
         return current.value;
     }
-}
 
+    public LinkedList zipLists(LinkedList x, LinkedList y) {
+        LinkedList zippedList = new LinkedList();
+        if (x.head == null && y.head == null) {
+            System.out.println("The lists are empty");
+        } else if (x.head == null) {
+            System.out.println("The first list is empty, here is the second one");
+            zippedList = y;
+            return zippedList;
+        } else if (y.head == null) {
+            System.out.println("The second list is empty, here is the first one");
+            zippedList = x;
+            return zippedList;
+        }
+        Node currentX = x.head;
+        Node currentY = y.head;
+        while (currentX.next != null && currentY.next != null) {
+            zippedList.append(currentX.value);
+            zippedList.append(currentY.value);
+            currentX = currentX.next;
+            currentY = currentY.next;
+        }
+        zippedList.append(currentX.value);
+        zippedList.append(currentY.value);
+        if (currentX.next != null) {
+            while (currentX.next != null) {
+                currentX = currentX.next;
+                zippedList.append(currentX.value);
+            }
+        } else if (currentY.next != null) {
+            while (currentY.next != null) {
+                currentY = currentY.next;
+                zippedList.append(currentY.value);
+            }
+        }
+        return zippedList;
+    }
+}

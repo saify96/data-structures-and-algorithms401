@@ -105,5 +105,59 @@ public class MainTest {
         assertThrows(NullPointerException .class ,()-> testLL.kthFromEnd(-5));
         assertThrows(IndexOutOfBoundsException .class ,()-> testLL.kthFromEnd(20));
     }
-
+    //challenge 08
+    @Test public void testZipLists() {
+        LinkedList testLL = new LinkedList();
+        testLL.append(1);
+        testLL.append(2);
+        testLL.append(3);
+        testLL.append(4);
+        LinkedList testLL2 = new LinkedList();
+        testLL2.insert(5);
+        testLL2.append(6);
+        testLL2.append(7);
+        testLL2.append(8);
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(testLL,testLL2);
+        assertEquals("{1} -> {5} -> {2} -> {6} -> {3} -> {7} -> {4} -> {8} -> NULL",zippedList.toString());
+    }
+    @Test public void testZipVoidLists() {
+        LinkedList testLL = new LinkedList();
+        LinkedList testLL2 = new LinkedList();
+        testLL2.insert(5);
+        testLL2.append(6);
+        testLL2.append(7);
+        testLL2.append(8);
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(testLL,testLL2);
+        assertEquals("{5} -> {6} -> {7} -> {8} -> NULL",zippedList.toString());
+    }
+    @Test public void testZipVoidLists2() {
+        LinkedList testLL = new LinkedList();
+        testLL.append(1);
+        testLL.append(2);
+        testLL.append(3);
+        testLL.append(4);
+        LinkedList testLL2 = new LinkedList();
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(testLL,testLL2);
+        assertEquals("{1} -> {2} -> {3} -> {4} -> NULL",zippedList.toString());
+    }
+    @Test public void testZipListsNotEqualLength() {
+        LinkedList testLL = new LinkedList();
+        testLL.append(1);
+        testLL.append(2);
+        testLL.append(3);
+        testLL.append(4);
+        testLL.append(100);
+        testLL.append(200);
+        LinkedList testLL2 = new LinkedList();
+        testLL2.insert(5);
+        testLL2.append(6);
+        testLL2.append(7);
+        testLL2.append(8);
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(testLL,testLL2);
+        assertEquals("{1} -> {5} -> {2} -> {6} -> {3} -> {7} -> {4} -> {8} -> {100} -> {200} -> NULL",zippedList.toString());
+    }
 }
