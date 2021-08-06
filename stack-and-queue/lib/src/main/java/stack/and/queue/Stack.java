@@ -1,5 +1,7 @@
 package stack.and.queue;
 
+import java.util.EmptyStackException;
+
 public class Stack<T> {
     Node<T> top;
 
@@ -15,41 +17,38 @@ public class Stack<T> {
     }
 
     public T pop() {
-        try {
-            Node<T> temp = null;
-            if (top != null) {
-                temp = top;
-                top = top.next;
-                temp.next = null;
-                return temp.value;
+
+        Node<T> temp = null;
+        if (top != null) {
+            temp = top;
+            top = top.next;
+            temp.next = null;
+            return temp.value;
+        }
+        throw new EmptyStackException();
+    }
+
+        public T peek () {
+            if (!this.isEmpty()) {
+                return top.value;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            throw new EmptyStackException();
         }
-        return null;
-    }
 
-    public T peek(){
-        if(!this.isEmpty()){
-            return top.value;
+        public boolean isEmpty () {
+            return top == null;
         }
-        return null;
-    }
 
-    public boolean isEmpty (){
-        return top == null;
-    }
-
-    @Override
-    public String toString() {
-        Node current = top;
-        String stack = "";
-        System.out.print("TOP -> ");
-        while (current != null) {
-            stack += "{" + current.value + "} -> ";
-            current = current.next;
+        @Override
+        public String toString () {
+            Node current = top;
+            String stack = "";
+            stack = ("TOP -> ");
+            while (current != null) {
+                stack += "{" + current.value + "} -> ";
+                current = current.next;
+            }
+            stack += "NULL";
+            return stack;
         }
-        stack += "NULL";
-        return stack;
     }
-}

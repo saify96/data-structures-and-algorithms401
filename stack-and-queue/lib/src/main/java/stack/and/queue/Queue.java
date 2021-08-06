@@ -1,5 +1,7 @@
 package stack.and.queue;
 
+import java.util.EmptyStackException;
+
 public class Queue<T> {
     Node front;
     Node rear;
@@ -15,12 +17,36 @@ public class Queue<T> {
             rear = newItem;
         }
     }
+    public T dequeue () {
+        if (!isEmpty()){
+            Node temp;
+            temp=front;
+            front=front.next;
+            temp.next=null;
+            return (T)temp.value;
+        }
+        throw new EmptyStackException();
+    }
+
+
+    public T peek(){
+        if(!isEmpty()){
+            return (T) front.value;
+        }
+         throw new EmptyStackException();
+    }
+
+
+    public boolean isEmpty (){
+        return front == null;
+    }
+
 
     @Override
     public String toString() {
         Node current = front;
         String queue = "";
-        System.out.print("TOP -> ");
+        queue ="FRONT -> ";
         while (current != null) {
             queue += "{" + current.value + "} -> ";
             current = current.next;
