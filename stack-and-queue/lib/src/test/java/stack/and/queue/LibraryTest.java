@@ -4,11 +4,146 @@
 package stack.and.queue;
 
 import org.junit.jupiter.api.Test;
+import java.util.EmptyStackException;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+    //Stack Tests
+    @Test
+    void pushStackTest() {
+        Stack stackTest = new Stack();
+        stackTest.push(1);
+        assertEquals("TOP -> {1} -> NULL", stackTest.toString());
+    }
+
+    @Test
+    void pushMultiStackTest() {
+        Stack stackTest = new Stack();
+        stackTest.push(1);
+        stackTest.push(2);
+        stackTest.push(3);
+        assertEquals("TOP -> {3} -> {2} -> {1} -> NULL", stackTest.toString());
+    }
+
+    @Test
+    void popStackTest() {
+        Stack stackTest = new Stack();
+        stackTest.push(1);
+        stackTest.push(2);
+        stackTest.push(3);
+        Integer value = (Integer) stackTest.pop();
+        assertEquals("TOP -> {2} -> {1} -> NULL", stackTest.toString());
+        assertEquals(3, value);
+    }
+
+    @Test
+    void popMultiStackTest() {
+        Stack stackTest = new Stack();
+        stackTest.push(1);
+        stackTest.push(2);
+        stackTest.push(3);
+        stackTest.pop();
+        stackTest.pop();
+        stackTest.pop();
+        assertEquals("TOP -> NULL", stackTest.toString());
+    }
+
+    @Test
+    void peekStackTest() {
+        Stack stackTest = new Stack();
+        stackTest.push(1);
+        stackTest.push(2);
+        stackTest.push(3);
+        Integer value = (Integer) stackTest.peek();
+        assertEquals("TOP -> {3} -> {2} -> {1} -> NULL", stackTest.toString());
+        assertEquals(3, value);
+    }
+
+    @Test
+    void insStackTest() {
+        Stack stackTest = new Stack();
+        assertTrue(stackTest !=null);
+    }
+
+    @Test
+    void peekEmptyStackTest() {
+        Stack stackTest = new Stack();
+        assertThrows(EmptyStackException.class,()->stackTest.peek());
+    }
+
+    @Test
+    void popEmptyStackTest() {
+        Stack stackTest = new Stack();
+        assertThrows(EmptyStackException.class,()->stackTest.pop());
+    }
+
+    //Queue Tests
+    @Test
+    void enqueueTest() {
+        Queue queueTest = new Queue();
+        queueTest.Enqueue(1);
+        assertEquals("FRONT -> {1} -> NULL", queueTest.toString());
+    }
+
+    @Test
+    void enqueueMultiTest() {
+        Queue queueTest = new Queue();
+        queueTest.Enqueue(1);
+        queueTest.Enqueue(2);
+        queueTest.Enqueue(3);
+        assertEquals("FRONT -> {1} -> {2} -> {3} -> NULL", queueTest.toString());
+    }
+
+    @Test
+    void dequeueTest() {
+        Queue queueTest = new Queue();
+        queueTest.Enqueue(1);
+        queueTest.Enqueue(2);
+        queueTest.Enqueue(3);
+        int frontValue =(int) queueTest.dequeue();
+        assertEquals("FRONT -> {2} -> {3} -> NULL", queueTest.toString());
+        assertEquals(1, frontValue);
+    }
+
+    @Test
+    void peekTest() {
+        Queue queueTest = new Queue();
+        queueTest.Enqueue(1);
+        queueTest.Enqueue(2);
+        queueTest.Enqueue(3);
+        int frontValue =(int) queueTest.peek();
+        assertEquals(1, frontValue);
+    }
+
+    @Test
+    void dequeueMultiTest() {
+        Queue queueTest = new Queue();
+        queueTest.Enqueue(1);
+        queueTest.Enqueue(2);
+        queueTest.Enqueue(3);
+        queueTest.dequeue();
+        queueTest.dequeue();
+        queueTest.dequeue();
+        assertEquals("FRONT -> NULL", queueTest.toString());
+    }
+
+    @Test
+    void insQueue(){
+        Queue queueTest = new Queue();
+        assertTrue(queueTest !=null);
+    }
+
+    @Test
+    void dequeueEmptyQueue(){
+        Queue queueTest = new Queue();
+        assertThrows(EmptyStackException.class,()->queueTest.dequeue());
+    }
+
+    @Test
+    void peekEmptyQueue(){
+        Queue queueTest = new Queue();
+        assertThrows(EmptyStackException.class,()->queueTest.peek());
     }
 }

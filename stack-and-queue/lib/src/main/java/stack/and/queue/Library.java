@@ -38,6 +38,22 @@ public class Library {
         newQueue.Enqueue(3);
         newQueue.Enqueue(4);
         System.out.println(newQueue);
+
+        newQueue.dequeue();
+        System.out.println(newQueue);
+
+        newQueue.dequeue();
+        System.out.println(newQueue);
+
+        newQueue.dequeue();
+        System.out.println(newQueue);
+
+        newQueue.dequeue();
+        System.out.println(newQueue);
+
+        newQueue.dequeue();
+
+//        System.out.println(newQueue.peek());
     }
 
 }
