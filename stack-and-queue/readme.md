@@ -6,3 +6,13 @@ Write a code of Implementation of Stacks and Queues.
 ## Approach & Efficiency
 Time = BigO(1)
 Space = BigO(n)
+
+---
+
+# Pseudo Queue
+- Implement a Queue using two Stacks.
+## Whiteboard Process
+![stack-queue-pseudo](stack-queue-pseudo.jpg)
+## Challenge
+- Write a code of Implementation Queues methods with using two stack instances with using stacks methods.
+
