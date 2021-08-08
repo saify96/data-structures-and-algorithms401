@@ -1,5 +1,7 @@
 package challenge05;
 
+import java.util.ArrayList;
+
 public class LinkedList {
     Node head;
 
@@ -137,4 +139,40 @@ public class LinkedList {
         }
         return zippedList;
     }
+
+    public LinkedList reverseLinkedList(LinkedList x) {
+        LinkedList reversedLinkedList = new LinkedList();
+        Node current = x.head;
+        while (current.next != null) {
+            reversedLinkedList.insert(current.value);
+            current = current.next;
+        }
+        reversedLinkedList.insert(current.value);
+        return reversedLinkedList;
+    }
+
+    public boolean checkLinkedList(LinkedList x) {
+        LinkedList reversedLinkedList = new LinkedList();
+        reversedLinkedList = reverseLinkedList(x);
+        if (reversedLinkedList.toString().equals(x.toString())) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean equality(LinkedList s) {
+        Node current = s.head;
+        ArrayList<Integer> list = new ArrayList<>();
+        while (current != null) {
+            list.add(current.value);
+            current = current.next;
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) != list.get(list.size() - i-1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
