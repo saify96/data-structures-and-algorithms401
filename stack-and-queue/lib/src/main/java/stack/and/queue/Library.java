@@ -32,28 +32,39 @@ public class Library {
 
         /////// Queue
 
-        Queue<Integer> newQueue = new Queue<>();
-        newQueue.Enqueue(1);
-        newQueue.Enqueue(2);
-        newQueue.Enqueue(3);
-        newQueue.Enqueue(4);
-        System.out.println(newQueue);
-
-        newQueue.dequeue();
-        System.out.println(newQueue);
-
-        newQueue.dequeue();
-        System.out.println(newQueue);
-
-        newQueue.dequeue();
-        System.out.println(newQueue);
-
-        newQueue.dequeue();
-        System.out.println(newQueue);
-
-        newQueue.dequeue();
+//        Queue<Integer> newQueue = new Queue<>();
+//        newQueue.Enqueue(1);
+//        newQueue.Enqueue(2);
+//        newQueue.Enqueue(3);
+//        newQueue.Enqueue(4);
+//        System.out.println(newQueue);
+//
+//        newQueue.dequeue();
+//        System.out.println(newQueue);
+//
+//        newQueue.dequeue();
+//        System.out.println(newQueue);
+//
+//        newQueue.dequeue();
+//        System.out.println(newQueue);
+//
+//        newQueue.dequeue();
+//        System.out.println(newQueue);
+//
+//        newQueue.dequeue();
 
 //        System.out.println(newQueue.peek());
+
+
+        /////// Queue
+
+        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
+        newPseudoQueue.pseudoEnqueue(1);
+        newPseudoQueue.pseudoEnqueue(2);
+        newPseudoQueue.pseudoEnqueue(3);
+        newPseudoQueue.pseudoDequeue();
+        System.out.println(newPseudoQueue);
+
     }
 
 }

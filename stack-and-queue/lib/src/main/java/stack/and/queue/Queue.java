@@ -17,6 +17,7 @@ public class Queue<T> {
             rear = newItem;
         }
     }
+
     public T dequeue () {
         if (!isEmpty()){
             Node temp;
@@ -28,7 +29,6 @@ public class Queue<T> {
         throw new EmptyStackException();
     }
 
-
     public T peek(){
         if(!isEmpty()){
             return (T) front.value;
@@ -36,11 +36,9 @@ public class Queue<T> {
          throw new EmptyStackException();
     }
 
-
     public boolean isEmpty (){
         return front == null;
     }
-
 
     @Override
     public String toString() {
