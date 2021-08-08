@@ -4,6 +4,7 @@
 package stack.and.queue;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.EmptyStackException;
 
 
@@ -64,19 +65,19 @@ class LibraryTest {
     @Test
     void insStackTest() {
         Stack stackTest = new Stack();
-        assertTrue(stackTest !=null);
+        assertTrue(stackTest != null);
     }
 
     @Test
     void peekEmptyStackTest() {
         Stack stackTest = new Stack();
-        assertThrows(EmptyStackException.class,()->stackTest.peek());
+        assertThrows(EmptyStackException.class, () -> stackTest.peek());
     }
 
     @Test
     void popEmptyStackTest() {
         Stack stackTest = new Stack();
-        assertThrows(EmptyStackException.class,()->stackTest.pop());
+        assertThrows(EmptyStackException.class, () -> stackTest.pop());
     }
 
     //Queue Tests
@@ -102,7 +103,7 @@ class LibraryTest {
         queueTest.Enqueue(1);
         queueTest.Enqueue(2);
         queueTest.Enqueue(3);
-        int frontValue =(int) queueTest.dequeue();
+        int frontValue = (int) queueTest.dequeue();
         assertEquals("FRONT -> {2} -> {3} -> NULL", queueTest.toString());
         assertEquals(1, frontValue);
     }
@@ -113,7 +114,7 @@ class LibraryTest {
         queueTest.Enqueue(1);
         queueTest.Enqueue(2);
         queueTest.Enqueue(3);
-        int frontValue =(int) queueTest.peek();
+        int frontValue = (int) queueTest.peek();
         assertEquals(1, frontValue);
     }
 
@@ -130,20 +131,56 @@ class LibraryTest {
     }
 
     @Test
-    void insQueue(){
+    void insQueue() {
         Queue queueTest = new Queue();
-        assertTrue(queueTest !=null);
+        assertTrue(queueTest != null);
     }
 
     @Test
-    void dequeueEmptyQueue(){
+    void dequeueEmptyQueue() {
         Queue queueTest = new Queue();
-        assertThrows(EmptyStackException.class,()->queueTest.dequeue());
+        assertThrows(EmptyStackException.class, () -> queueTest.dequeue());
     }
 
     @Test
-    void peekEmptyQueue(){
+    void peekEmptyQueue() {
         Queue queueTest = new Queue();
-        assertThrows(EmptyStackException.class,()->queueTest.peek());
+        assertThrows(EmptyStackException.class, () -> queueTest.peek());
     }
+
+
+    //PseudoQueue Tests
+    @Test
+    void pseudoEnqueueTest() {
+        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
+        newPseudoQueue.pseudoEnqueue(1);
+        assertEquals("NULL <- {1} <- FRONT", newPseudoQueue.toString());
+    }
+
+    @Test
+    void pseudoEnqueueMultiTest() {
+        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
+        newPseudoQueue.pseudoEnqueue(1);
+        newPseudoQueue.pseudoEnqueue(2);
+        newPseudoQueue.pseudoEnqueue(3);
+        newPseudoQueue.pseudoEnqueue(4);
+        assertEquals("NULL <- {4} <- {3} <- {2} <- {1} <- FRONT", newPseudoQueue.toString());
+    }
+
+    @Test
+    void pseudoDequeueTest() {
+        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
+        newPseudoQueue.pseudoEnqueue(1);
+        newPseudoQueue.pseudoEnqueue(2);
+        newPseudoQueue.pseudoEnqueue(3);
+        newPseudoQueue.pseudoDequeue();
+        assertEquals("NULL <- {3} <- {2} <- FRONT", newPseudoQueue.toString());
+    }
+
+    @Test
+    void pseudoDequeueEmptyTest() {
+        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
+        assertThrows(EmptyStackException.class, () -> newPseudoQueue.pseudoDequeue());
+    }
+
 }

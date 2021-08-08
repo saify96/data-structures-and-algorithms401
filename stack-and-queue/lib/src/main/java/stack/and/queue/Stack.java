@@ -17,7 +17,6 @@ public class Stack<T> {
     }
 
     public T pop() {
-
         Node<T> temp = null;
         if (top != null) {
             temp = top;
@@ -28,27 +27,27 @@ public class Stack<T> {
         throw new EmptyStackException();
     }
 
-        public T peek () {
-            if (!this.isEmpty()) {
-                return top.value;
-            }
-            throw new EmptyStackException();
+    public T peek() {
+        if (!this.isEmpty()) {
+            return top.value;
         }
-
-        public boolean isEmpty () {
-            return top == null;
-        }
-
-        @Override
-        public String toString () {
-            Node current = top;
-            String stack = "";
-            stack = ("TOP -> ");
-            while (current != null) {
-                stack += "{" + current.value + "} -> ";
-                current = current.next;
-            }
-            stack += "NULL";
-            return stack;
-        }
+        throw new EmptyStackException();
     }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    @Override
+    public String toString() {
+        Node current = top;
+        String stack = "";
+        stack = ("TOP -> ");
+        while (current != null) {
+            stack += "{" + current.value + "} -> ";
+            current = current.next;
+        }
+        stack += "NULL";
+        return stack;
+    }
+}
