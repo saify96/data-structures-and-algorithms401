@@ -58,12 +58,23 @@ public class Library {
 
         /////// Queue
 
-        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
-        newPseudoQueue.pseudoEnqueue(1);
-        newPseudoQueue.pseudoEnqueue(2);
-        newPseudoQueue.pseudoEnqueue(3);
-        newPseudoQueue.pseudoDequeue();
-        System.out.println(newPseudoQueue);
+//        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
+//        newPseudoQueue.pseudoEnqueue(1);
+//        newPseudoQueue.pseudoEnqueue(2);
+//        newPseudoQueue.pseudoEnqueue(3);
+//        newPseudoQueue.pseudoDequeue();
+//        System.out.println(newPseudoQueue);
+
+
+
+        Queue<AnimalShelter> animalQueue = new Queue<>();
+        Cat cat =new Cat();
+        Dog dog =new Dog();
+        animalQueue.Enqueue(cat);
+        animalQueue.Enqueue(dog);
+//        animalQueue.dequeue("dog");
+        System.out.println(animalQueue);
+
 
     }
 
