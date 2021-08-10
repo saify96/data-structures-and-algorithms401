@@ -183,4 +183,58 @@ class LibraryTest {
         assertThrows(EmptyStackException.class, () -> newPseudoQueue.pseudoDequeue());
     }
 
+    //Animal shelter Tests
+    @Test
+    void enqueueAnimalTest() {
+        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
+        Cat cat1 =new Cat("cat1");
+        animalQueue.animalEnqueue(cat1);
+        assertEquals("FRONT -> {cat1} -> NULL", animalQueue.toString());
+    }
+
+    @Test
+    void enqueueMultiAnimalTest() {
+        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
+        Cat cat1 =new Cat("cat1");
+        Dog dog1 =new Dog("dog1");
+        Cat cat2 =new Cat("cat2");
+        Dog dog2 =new Dog("dog2");
+        Dog dog3 =new Dog("dog3");
+        animalQueue.animalEnqueue(cat1);
+        animalQueue.animalEnqueue(dog1);
+        animalQueue.animalEnqueue(cat2);
+        animalQueue.animalEnqueue(dog2);
+        animalQueue.animalEnqueue(dog3);
+        assertEquals("FRONT -> {cat1} -> {dog1} -> {cat2} -> {dog2} -> {dog3} -> NULL", animalQueue.toString());
+    }
+
+    @Test
+    void dequeueAnimalsTest() {
+        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
+        Cat cat1 =new Cat("cat1");
+        Dog dog1 =new Dog("dog1");
+        Cat cat2 =new Cat("cat2");
+        Dog dog2 =new Dog("dog2");
+        Dog dog3 =new Dog("dog3");
+        animalQueue.animalEnqueue(cat1);
+        animalQueue.animalEnqueue(dog1);
+        animalQueue.animalEnqueue(cat2);
+        animalQueue.animalEnqueue(dog2);
+        animalQueue.animalEnqueue(dog3);
+
+        animalQueue.animalDequeue("cat");
+        assertEquals("FRONT -> {dog1} -> {cat2} -> {dog2} -> {dog3} -> NULL", animalQueue.toString());
+
+        animalQueue.animalDequeue("dog");
+        assertEquals("FRONT -> {cat2} -> {dog2} -> {dog3} -> NULL", animalQueue.toString());
+
+        animalQueue.animalDequeue("doG");
+        assertEquals("FRONT -> {cat2} -> {dog3} -> NULL", animalQueue.toString());
+    }
+
+    @Test
+    void dequeueEmptyAnimalsTest() {
+        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
+        assertThrows(NullPointerException.class, () -> animalQueue.animalDequeue("dog"));
+    }
 }

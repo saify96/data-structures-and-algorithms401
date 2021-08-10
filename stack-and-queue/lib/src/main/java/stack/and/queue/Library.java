@@ -78,7 +78,7 @@ public class Library {
 
         System.out.println(animalQueue);
 
-        animalQueue.animalDequeue("dog");
+        animalQueue.animalDequeue("DOG");
         System.out.println(animalQueue);
 
         animalQueue.animalDequeue("cat");

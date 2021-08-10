@@ -9,7 +9,7 @@ public class AnimalShelter<T> {
 
     public void animalDequeue(String type) {
         Queue<Animal> newAnimalQueue = new Queue<>();
-        while (!animalQueue.front.value.getClass().getSimpleName().toLowerCase().equals(type) && animalQueue.front != null) {
+        while (!animalQueue.front.value.getClass().getSimpleName().toLowerCase().equals(type.toLowerCase()) && animalQueue.front != null) {
             newAnimalQueue.Enqueue(animalQueue.dequeue());
         }
         animalQueue.dequeue();
