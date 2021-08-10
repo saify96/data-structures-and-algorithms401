@@ -5,7 +5,7 @@ package stack.and.queue;
 
 public class Library {
     public static void main(String[] args) {
-        /////// Stack
+        ///// Stack
 
 //        Stack<Integer> newStack = new Stack<>();
 //        newStack.push(1);
@@ -28,7 +28,6 @@ public class Library {
 //        System.out.println(newStack);
 //        newStack.pop();
 //        System.out.println(newStack);
-
 
         /////// Queue
 
@@ -55,9 +54,7 @@ public class Library {
 
 //        System.out.println(newQueue.peek());
 
-
         /////// Queue
-
 //        PseudoQueue<Integer> newPseudoQueue = new PseudoQueue<>();
 //        newPseudoQueue.pseudoEnqueue(1);
 //        newPseudoQueue.pseudoEnqueue(2);
@@ -65,17 +62,29 @@ public class Library {
 //        newPseudoQueue.pseudoDequeue();
 //        System.out.println(newPseudoQueue);
 
+        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
+        Cat cat1 =new Cat("cat1");
+        Cat cat2 =new Cat("cat2");
+        Cat cat3 =new Cat("cat3");
+        Dog dog1 =new Dog("dog1");
+        Dog dog2 =new Dog("dog2");
+        Dog dog3 =new Dog("dog3");
+        animalQueue.animalEnqueue(cat1);
+        animalQueue.animalEnqueue(cat2);
+        animalQueue.animalEnqueue(cat3);
+        animalQueue.animalEnqueue(dog1);
+        animalQueue.animalEnqueue(dog2);
+        animalQueue.animalEnqueue(dog3);
 
-
-        Queue<AnimalShelter> animalQueue = new Queue<>();
-        Cat cat =new Cat();
-        Dog dog =new Dog();
-        animalQueue.Enqueue(cat);
-        animalQueue.Enqueue(dog);
-//        animalQueue.dequeue("dog");
         System.out.println(animalQueue);
 
+        animalQueue.animalDequeue("DOG");
+        System.out.println(animalQueue);
 
+        animalQueue.animalDequeue("cat");
+        System.out.println(animalQueue);
+
+        animalQueue.animalDequeue("dog");
+        System.out.println(animalQueue);
     }
-
 }

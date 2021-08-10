@@ -1,12 +1,14 @@
 package stack.and.queue;
 
-import stack.and.queue.AnimalShelter;
-import stack.and.queue.Node;
+public class Cat extends Animal {
+    String name;
 
-public class Cat extends AnimalShelter {
+    public Cat(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
-        return "cat";
+        return this.name;
     }
 }
