@@ -62,29 +62,55 @@ public class Library {
 //        newPseudoQueue.pseudoDequeue();
 //        System.out.println(newPseudoQueue);
 
-        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
-        Cat cat1 =new Cat("cat1");
-        Cat cat2 =new Cat("cat2");
-        Cat cat3 =new Cat("cat3");
-        Dog dog1 =new Dog("dog1");
-        Dog dog2 =new Dog("dog2");
-        Dog dog3 =new Dog("dog3");
-        animalQueue.animalEnqueue(cat1);
-        animalQueue.animalEnqueue(cat2);
-        animalQueue.animalEnqueue(cat3);
-        animalQueue.animalEnqueue(dog1);
-        animalQueue.animalEnqueue(dog2);
-        animalQueue.animalEnqueue(dog3);
+//        AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
+//        Cat cat1 =new Cat("cat1");
+//        Cat cat2 =new Cat("cat2");
+//        Cat cat3 =new Cat("cat3");
+//        Dog dog1 =new Dog("dog1");
+//        Dog dog2 =new Dog("dog2");
+//        Dog dog3 =new Dog("dog3");
+//        animalQueue.animalEnqueue(cat1);
+//        animalQueue.animalEnqueue(cat2);
+//        animalQueue.animalEnqueue(cat3);
+//        animalQueue.animalEnqueue(dog1);
+//        animalQueue.animalEnqueue(dog2);
+//        animalQueue.animalEnqueue(dog3);
+//
+//        System.out.println(animalQueue);
+//
+//        animalQueue.animalDequeue("DOG");
+//        System.out.println(animalQueue);
+//
+//        animalQueue.animalDequeue("cat");
+//        System.out.println(animalQueue);
+//
+//        animalQueue.animalDequeue("dog");
+//        System.out.println(animalQueue);
 
-        System.out.println(animalQueue);
+//        {}	TRUE
+//        {}(){}	TRUE
+//                ()[[Extra Characters]]	TRUE
+//                (){}[[]]	TRUE
+//        {}{Code}[Fellows](())	TRUE
+//                [({}]	FALSE
+//                (](	FALSE
+//        {(})	FALSE
 
-        animalQueue.animalDequeue("DOG");
-        System.out.println(animalQueue);
 
-        animalQueue.animalDequeue("cat");
-        System.out.println(animalQueue);
+        Stack<Character> newStack = new Stack<>();
+//        String s = "{}";
+//        String s = "{}(){}";
+//        String s = "()[[Extra Characters]]";
+//        String s = "(){}[[]]";
+//        String s = "{}{Code}[Fellows](())";
+//        String s = "[({}]";
+//        String s = "(](";
+//        String s = "{(})";
+        String s = "(";
+//        String s = "[}";
+//        String s = "}";
+        System.out.println(newStack.validateBrackets(s));
 
-        animalQueue.animalDequeue("dog");
-        System.out.println(animalQueue);
+
     }
 }

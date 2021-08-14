@@ -237,4 +237,33 @@ class LibraryTest {
         AnimalShelter<Animal> animalQueue = new AnimalShelter<>();
         assertThrows(NullPointerException.class, () -> animalQueue.animalDequeue("dog"));
     }
+
+    //validate brackets Tests
+
+    @Test
+    void validateBracketsTest() {
+        Stack<Character> newStack = new Stack<>();
+        String s1 = "{}";
+        String s2 = "{}(){}";
+        String s3 = "()[[Extra Characters]]";
+        String s4 = "(){}[[]]";
+        String s5 = "{}{Code}[Fellows](())";
+        String s6 = "[({}]";
+        String s7 = "(](";
+        String s8 = "{(})";
+        String s9 = "(";
+        String s10 = "[}";
+        String s11 = "}";
+        assertEquals(true, newStack.validateBrackets(s1));
+        assertEquals(true, newStack.validateBrackets(s2));
+        assertEquals(true, newStack.validateBrackets(s3));
+        assertEquals(true, newStack.validateBrackets(s4));
+        assertEquals(true, newStack.validateBrackets(s5));
+        assertEquals(false, newStack.validateBrackets(s6));
+        assertEquals(false, newStack.validateBrackets(s7));
+        assertEquals(false, newStack.validateBrackets(s8));
+        assertEquals(false, newStack.validateBrackets(s9));
+        assertEquals(false, newStack.validateBrackets(s10));
+        assertEquals(false, newStack.validateBrackets(s11));
+    }
 }
