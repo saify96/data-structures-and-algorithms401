@@ -38,6 +38,47 @@ public class Stack<T> {
         return top == null;
     }
 
+    public boolean validateBrackets(String string) {
+        Stack<Character> charStack = new Stack<>();
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == '{' || string.charAt(i) == '(' || string.charAt(i) == '[') {
+                charStack.push(string.charAt(i));
+            } else if (string.charAt(i) == '}') {
+                if (charStack.isEmpty()) {
+                    return false;
+                } else {
+                    if (charStack.peek() == '{') {
+                        charStack.pop();
+                    }
+                }
+            } else if (string.charAt(i) == ')') {
+                if (charStack.isEmpty()) {
+                    return false;
+                } else {
+                    if (charStack.peek() == '(') {
+                        charStack.pop();
+                    }
+                }
+            } else if (string.charAt(i) == ']'){
+                if (charStack.isEmpty()) {
+                    return false;
+                } else {
+                    if (charStack.peek() == '[') {
+                        charStack.pop();
+                    }
+                }
+            }
+            else if (string.charAt(i) != '}' || string.charAt(i) != ')' || string.charAt(i) != ']') {
+                continue;
+            }
+        }
+        if(charStack.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+
     @Override
     public String toString() {
         Node current = top;
@@ -50,4 +91,47 @@ public class Stack<T> {
         stack += "NULL";
         return stack;
     }
+
 }
+
+
+//            if (charStack.isEmpty()){
+//        return false;
+//    }
+//            if (string.charAt(i) == '}') {
+//        if (charStack.peek() == '{')
+//            charStack.pop();
+//    }
+//            if (string.charAt(i) == ')') {
+//        if (charStack.peek() == '(')
+//            charStack.pop();
+//    }
+//            if (string.charAt(i) == ']') {
+//        if (charStack.peek() == '[')
+//            charStack.pop();
+//    }
+//            if (string.charAt(i) != '}' || string.charAt(i) != ')' || string.charAt(i) != ']') {
+//        continue;
+//    } else {
+//        return false;
+//    }
+//}
+//        return false;
+
+
+//    Stack<Character> charStack = new Stack<>();
+//            for (int i = 0; i < string.length(); i++) {
+//        if (string.charAt(i) == '{' || string.charAt(i) == '(' || string.charAt(i) == '[') {
+//        charStack.push(string.charAt(i));
+//        } else if (string.charAt(i) == '}' && charStack.peek() == '{' || string.charAt(i) == ')' && charStack.peek() == '(' || string.charAt(i) == ']' && charStack.peek() == '[') {
+//        charStack.pop();
+//        } else if (string.charAt(i) != '}' || string.charAt(i) != ')' || string.charAt(i) != ']') {
+//        continue;
+//        } else {
+//        return false;
+//        }
+//        }
+//        if (charStack.isEmpty()) {
+//        return true;
+//        }
+//        return false;
