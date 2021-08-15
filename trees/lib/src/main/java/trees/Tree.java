@@ -1,6 +1,11 @@
 package trees;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Tree {
+    static ArrayList<Integer> values = new ArrayList();
+
     Node root;
     static String preOrderString = "";
     static String inOrderString = "";
@@ -14,11 +19,23 @@ public class Tree {
         Node B = new Node(E, D, "B");
         Node A = new Node(C, B, "A");
 
-        System.out.println(preOrder(A));
-        System.out.println("----------");
-        System.out.println(inOrder(A));
-        System.out.println("----------");
-        System.out.println(postOrder(A));
+//        System.out.println(preOrder(A));
+//        System.out.println("----------");
+//        System.out.println(inOrder(A));
+//        System.out.println("----------");
+//        System.out.println(postOrder(A));
+
+        Tree tree = new Tree();
+        tree.root = new Node(2);
+        tree.root.right = new Node(5);
+        tree.root.left = new Node(45);
+        tree.root.right.left = new Node(44);
+        tree.root.left.right = new Node(50);
+        tree.root.left.left = new Node(6);
+//        System.out.println(findValues(tree.root));
+//        System.out.println("------------");
+        System.out.println(tree.findMax());
+
     }
 
     public static String preOrder(Node root) {
@@ -59,6 +76,24 @@ public class Tree {
         postOrderString += root.value + " -> ";
 //        System.out.println(root.value);
         return postOrderString;
+    }
+
+    public static ArrayList findValues(Node root) {
+        if (root != null) {
+            values.add((Integer) root.value);
+        }
+        if (root.left != null) {
+            findValues(root.left);
+        }
+        if (root.right != null) {
+            findValues(root.right);
+        }
+        return values;
+    }
+
+    public Integer findMax() {
+        findValues(this.root);
+        return Collections.max(values);
     }
 }
 
