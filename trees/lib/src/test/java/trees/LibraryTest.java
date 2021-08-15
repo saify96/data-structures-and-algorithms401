@@ -4,29 +4,38 @@
 package trees;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LibraryTest {
-    @Test void instantiateEmptyTree () {
+    //implementation tests
+    @Test
+    void instantiateEmptyTree() {
         Tree tree = new Tree();
         assertNull(tree.root);
     }
-    @Test void singleRootTree () {
+
+    @Test
+    void singleRootTree() {
         Tree tree = new Tree();
-        tree.root=new Node("A");
+        tree.root = new Node("A");
         assertNotNull(tree.root);
     }
-    @Test void smallTree () {
+
+    @Test
+    void smallTree() {
         Tree tree = new Tree();
-        tree.root=new Node("A");
-        tree.root.right=new Node("B");
-        tree.root.left=new Node("C");
-        assertEquals("A",tree.root.value);
-        assertEquals("B",tree.root.right.value);
-        assertEquals("C",tree.root.left.value);
+        tree.root = new Node("A");
+        tree.root.right = new Node("B");
+        tree.root.left = new Node("C");
+        assertEquals("A", tree.root.value);
+        assertEquals("B", tree.root.right.value);
+        assertEquals("C", tree.root.left.value);
     }
-    @Test void treeMethodsTests () {
+
+    @Test
+    void treeMethodsTests() {
         Tree tree = new Tree();
         tree.root = new Node("A");
         tree.root.right = new Node("C");
@@ -34,8 +43,33 @@ class LibraryTest {
         tree.root.right.left = new Node("F");
         tree.root.left.right = new Node("E");
         tree.root.left.left = new Node("D");
-        assertEquals("A -> B -> D -> E -> C -> F -> ",tree.preOrder(tree.root));
-        assertEquals("D -> B -> E -> A -> F -> C -> ",tree.inOrder(tree.root));
-        assertEquals("D -> E -> B -> F -> C -> A -> ",tree.postOrder(tree.root));
+        assertEquals("A -> B -> D -> E -> C -> F -> ", tree.preOrder(tree.root));
+        assertEquals("D -> B -> E -> A -> F -> C -> ", tree.inOrder(tree.root));
+        assertEquals("D -> E -> B -> F -> C -> A -> ", tree.postOrder(tree.root));
+    }
+
+    //maximum test
+    @Test
+    void findMaxMethodTests() {
+        Tree tree = new Tree();
+        tree.root = new Node(1);
+        tree.root.right = new Node(23);
+        tree.root.left = new Node(66);
+        tree.root.right.left = new Node(54);
+        tree.root.left.right = new Node(20);
+        tree.root.left.left = new Node(16);
+        assertEquals(66, tree.findMax());
+    }
+
+    @Test
+    void findMaxMethodTests2() {
+        Tree tree2 = new Tree();
+        tree2.root = new Node(-5);
+        tree2.root.right = new Node(-88);
+        tree2.root.left = new Node(0);
+        tree2.root.right.left = new Node(20);
+        tree2.root.left.right = new Node(-62);
+        tree2.root.left.left = new Node(16);
+        assertEquals(20, tree2.findMax());
     }
 }
