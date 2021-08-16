@@ -15,5 +15,6 @@ Challenge12 | [Challenge12](stack-and-queue/readme12.md)
 Challenge13 | [Challenge13](stack-and-queue/readme13.md)
 Challenge15 | [Challenge15](trees/readme.md)
 Challenge16 | [Challenge16](trees/readme16.md)
+Challenge17 | [Challenge17](trees/readme17.md)
 
 

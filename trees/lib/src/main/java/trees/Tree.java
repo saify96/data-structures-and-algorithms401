@@ -1,12 +1,15 @@
 package trees;
 
+import queues.Queue;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Tree {
+public class Tree<T> {
     static ArrayList<Integer> values = new ArrayList();
-
-    Node root;
+    ArrayList<T> breadthTree = new ArrayList();
+    Queue<Node> queue = new Queue();
+    static Node root;
     static String preOrderString = "";
     static String inOrderString = "";
     static String postOrderString = "";
@@ -34,7 +37,8 @@ public class Tree {
         tree.root.left.left = new Node(6);
 //        System.out.println(findValues(tree.root));
 //        System.out.println("------------");
-        System.out.println(tree.findMax());
+//        System.out.println(tree.findMax());
+        System.out.println(tree.breadthFirst(tree));
 
     }
 
@@ -94,6 +98,25 @@ public class Tree {
     public Integer findMax() {
         findValues(this.root);
         return Collections.max(values);
+    }
+
+    public ArrayList breadthFirst(Tree<T> tree) {
+        if (tree.root == null) {
+            System.out.println("empty tree");
+            return breadthTree;
+        } else {
+            queue.Enqueue(tree.root);
+        }
+        while (!queue.isEmpty()) {
+            if (queue.peek().left != null) {
+                queue.Enqueue(queue.peek().left);
+            }
+            if (queue.peek().right != null) {
+                queue.Enqueue(queue.peek().right);
+            }
+            breadthTree.add((T) queue.dequeue().value);
+        }
+        return breadthTree;
     }
 }
 
