@@ -72,4 +72,28 @@ class LibraryTest {
         tree2.root.left.left = new Node(16);
         assertEquals(20, tree2.findMax());
     }
+
+    //Breadth First tests
+    @Test
+    void BreadthTests() {
+        Tree tree = new Tree();
+        tree.root = new Node("A");
+        tree.root.right = new Node("C");
+        tree.root.left = new Node("B");
+        tree.root.right.left = new Node("F");
+        tree.root.left.right = new Node("E");
+        tree.root.left.left = new Node("D");
+        assertEquals("[A, B, C, D, E, F]", tree.breadthFirst(tree).toString());
+    }
+    @Test
+    void BreadthNumTests() {
+        Tree tree = new Tree();
+        tree.root = new Node(1);
+        tree.root.right = new Node(3);
+        tree.root.left = new Node(2);
+        tree.root.right.left = new Node(6);
+        tree.root.left.right = new Node(5);
+        tree.root.left.left = new Node(4);
+        assertEquals("[1, 2, 3, 4, 5, 6]", tree.breadthFirst(tree).toString());
+    }
 }
