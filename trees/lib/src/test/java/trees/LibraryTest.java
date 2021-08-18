@@ -96,4 +96,27 @@ class LibraryTest {
         tree.root.left.left = new Node(4);
         assertEquals("[1, 2, 3, 4, 5, 6]", tree.breadthFirst(tree).toString());
     }
+
+    //fizzbuzz tests
+    @Test
+    void fizzBuzzTests() {
+        kTree ktree = new kTree();
+        NodeK root = new NodeK("22");
+        NodeK node1 = new NodeK("15");
+        NodeK node2 = new NodeK("20");
+        NodeK node3 = new NodeK("65");
+        NodeK node4 = new NodeK("30");
+        NodeK node5 = new NodeK("555");
+        NodeK node6 = new NodeK("18");
+
+        ktree.root = root;
+        root.children.add(node1);
+        root.children.add(node2);
+        node1.children.add(node3);
+        node2.children.add(node4);
+        node2.children.add(node5);
+        node2.children.add(node6);
+        assertEquals("22 FizzBuzz Buzz Buzz FizzBuzz FizzBuzz Fizz ",ktree.fizzBuzz(root));
+
+    }
 }
