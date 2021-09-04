@@ -18,5 +18,6 @@ Challenge16 | [Challenge16](trees/readme16.md)
 Challenge17 | [Challenge17](trees/readme17.md)
 Challenge26 | [Challenge26](challenge26/README.md)
 Challenge27 | [Challenge27](mergeSort/README.md)
+Challenge28 | [Challenge28](quickSort/README.md)
 
 
