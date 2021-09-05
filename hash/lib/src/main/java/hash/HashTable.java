@@ -50,21 +50,48 @@ public class HashTable<K, T> {
         throw new NoSuchElementException("There is no element with such Key");
     }
 
-    public boolean contain(K key) {
-        int hashedKeyIdx = GetHash(key);
-        if (tableArray[hashedKeyIdx] != null) {
-            if (tableArray[hashedKeyIdx].getKey() == key) {
-                return true;
-            } else {
-                Node<K, T> current = tableArray[hashedKeyIdx];
-                while (current.next != null) {
-                    if (current.next.getKey() == key) {
-                        return true;
-                    }
-                    current = current.next;
-                }
-            }
-        }
-        return false;
+
+        public boolean contain(K key) {
+        return tableArray[GetHash(key)] != null ;
     }
+
+//    public boolean contain(K key) {
+//        return tableArray[GetHash(key)] != null && tableArray[GetHash(key)].getKey() == key;
+//    }
+
+
+
+
+//    public boolean contain(K key) {
+//        if (tableArray[GetHash(key)] != null) {
+//            if (tableArray[GetHash(key)].getKey() == key) {
+//                return true;
+//            } else {
+//                Node<K, T> current = tableArray[GetHash(key)];
+//                while (current.next != null) {
+//                    if (current.next.getKey() == key) {
+//                        return true;
+//                    }
+//                    current = current.next;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+
+
+
+//    public String RepeatedWord(String sentence){
+//        String[] sentenceWords = sentence.split(" ");
+//        for (String word : sentenceWords) {
+//            tableArray.add
+//        }
+//        if (hashTable.contains(word)) {
+//            return word;
+//        } else {
+//            hashTable.add(word, word);
+//        }
+//
+//
+//    }
 }
