@@ -7,23 +7,18 @@ package hash;
 public class Library {
 
     public static void main(String[] args) {
-
+        HashTable test = new HashTable(1024);
 //        System.out.println((int) 'C');
-//        System.out.println(hash();
-//        System.out.println(hash("Pioneer Square"));
+        System.out.println(test.GetHash("Ayyoub"));
+//        System.out.println(test.GetHash("Mohammad"));
+        test.addToHashTable("Ayyoub","saify");
+        System.out.println(test.tableArray[287].getValue());
+        System.out.println("------");
+        test.addToHashTable("Ayyuob","keyyam");
+        System.out.println(test.tableArray[287].next.getValue());
+        System.out.println("000000000");
+//        System.out.println(test.get("jj"));
+        System.out.println(test.contain("Ayyoub"));
+        System.out.println(test.contain("ayyoub"));
     }
-
-//    public static void
-
-//
-//    public static int hash<K> ( key){
-//        int sumOfAscii=0;
-//        String castedKey=key.toString();
-//        for(int i=0; i<castedKey.length(); i++)
-//        {
-//          sumOfAscii+=  (int)castedKey.charAt(i);
-//            System.out.println((int)castedKey.charAt(i));
-//        }
-//        return  (sumOfAscii*599)%1024;
-//    }
 }

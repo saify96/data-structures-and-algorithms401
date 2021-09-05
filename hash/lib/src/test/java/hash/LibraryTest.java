@@ -4,11 +4,22 @@
 package hash;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
     @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+        HashTable hashTableTest = new HashTable(1024);
+        hashTableTest.addToHashTable("Mohammad","Alsaify");
+        hashTableTest.addToHashTable("Mohmmaad","Ahmad");
+        assertEquals(316,hashTableTest.GetHash("Mohammad"));
+        assertEquals("Alsaify",hashTableTest.tableArray[316].getValue());
+        assertEquals("Alsaify",hashTableTest.get("Mohammad"));
+        assertEquals("Ahmad",hashTableTest.get("Mohmmaad"));//collision
+        assertEquals(true,hashTableTest.contain("Mohammad"));
+        assertEquals(false,hashTableTest.contain("anas"));
+        assertThrows(NoSuchElementException.class,() ->hashTableTest.get("anas"));
     }
 }
