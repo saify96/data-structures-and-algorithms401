@@ -18,12 +18,7 @@ public class RepeatedWord {
             if (repeatedWordTable.contain(singleWord)) {
                 return singleWord;
             } else {
-//                System.out.println(singleWord);
-//                System.out.println("000");
-
                 repeatedWordTable.addToHashTable(singleWord,singleWord);
-//                System.out.println(repeatedWordTable.contain("a"));
-//                System.out.println(repeatedWordTable.contain(singleWord));
             }
         }
         return "There's no repeated word";

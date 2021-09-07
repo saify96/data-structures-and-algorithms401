@@ -1,5 +1,7 @@
 package hash;
 
+import hash.Tree.Tree;
+
 import java.util.NoSuchElementException;
 
 public class HashTable<K, T> {
@@ -50,16 +52,31 @@ public class HashTable<K, T> {
         throw new NoSuchElementException("There is no element with such Key");
     }
 
+//        public boolean contain(K key) {
+//        return tableArray[GetHash(key)] != null ;
+//    }
 
-        public boolean contain(K key) {
-        return tableArray[GetHash(key)] != null ;
+    public boolean contain(K key) {
+        if (tableArray[GetHash(key)] != null) {
+            if (tableArray[GetHash(key)].getKey().equals(key)) {
+                return true;
+            } else {
+                Node<K, T> current = tableArray[GetHash(key)];
+                while (current.next != null) {
+                    if (current.next.getKey().equals(key)) {
+                        return true;
+                    }
+                    current = current.next;
+                }
+            }
+        }
+        return false;
     }
+}
 
 //    public boolean contain(K key) {
 //        return tableArray[GetHash(key)] != null && tableArray[GetHash(key)].getKey() == key;
 //    }
-
-
 
 
 //    public boolean contain(K key) {
@@ -80,7 +97,6 @@ public class HashTable<K, T> {
 //    }
 
 
-
 //    public String RepeatedWord(String sentence){
 //        String[] sentenceWords = sentence.split(" ");
 //        for (String word : sentenceWords) {
@@ -94,4 +110,3 @@ public class HashTable<K, T> {
 //
 //
 //    }
-}

@@ -21,5 +21,6 @@ Challenge27 | [Challenge27](mergeSort/README.md)
 Challenge28 | [Challenge28](quickSort/README.md)
 Challenge30 | [Challenge30](hash/README.md)
 Challenge31 | [Challenge31](hash/challenge31.md)
+Challenge32 | [Challenge32](hash/challenge32.md)
 
 
