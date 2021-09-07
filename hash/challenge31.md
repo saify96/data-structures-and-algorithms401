@@ -5,4 +5,3 @@ Write a function that takes a String (have sentence) then finds the first word t
 ## Approach & Efficiency
 - Space O(n), because we will create an Array
 - Time O(1),because we insert and get tha values directly from the index
-

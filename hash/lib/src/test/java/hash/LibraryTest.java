@@ -3,13 +3,15 @@
  */
 package hash;
 
+import hash.Tree.HashTreeIns;
+import hash.Tree.Tree;
+import hash.Tree.TreeNode;
 import org.junit.jupiter.api.Test;
-
 import java.util.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
+    //hashTable Tests
     @Test void hashTableTests() {
         HashTable hashTableTest = new HashTable(1024);
         hashTableTest.addToHashTable("Mohammad","Alsaify");
@@ -22,7 +24,7 @@ class LibraryTest {
         assertEquals(false,hashTableTest.contain("anas"));
         assertThrows(NoSuchElementException.class,() ->hashTableTest.get("anas"));
     }
-
+    //repeatedWord Tests
     @Test void repeatedWordsTests() {
         RepeatedWord repeatedWordTest = new RepeatedWord();
         String test="Once upon a time, there was a brave princess who...";
@@ -35,6 +37,36 @@ class LibraryTest {
         assertEquals("There's no repeated word",repeatedWordTest.repeatedWord(test4));
 
     }
+    //HashTreeInsertion Tests
+    @Test void HashTreeInsertionTests() {
+        HashTreeIns test = new HashTreeIns();
+        Tree a = new Tree();
+        a.root = new TreeNode(150);
+        a.root.left = new TreeNode(100);
+        a.root.left.left = new TreeNode(75);
+        a.root.left.right = new TreeNode(160);
+        a.root.left.right.left = new TreeNode(125);
+        a.root.left.right.right = new TreeNode(175);
+        a.root.right = new TreeNode(250);
+        a.root.right.left = new TreeNode(200);
+        a.root.right.right = new TreeNode(350);
+        a.root.right.right.left = new TreeNode(300);
+        a.root.right.right.right = new TreeNode(500);
 
+        Tree b = new Tree();
+        b.root = new TreeNode(42);
+        b.root.left = new TreeNode(100);
+        b.root.left.left = new TreeNode(15);
+        b.root.left.right = new TreeNode(160);
+        b.root.left.right.left = new TreeNode(125);
+        b.root.left.right.right = new TreeNode(175);
+        b.root.right = new TreeNode(600);
+        b.root.right.left = new TreeNode(200);
+        b.root.right.right = new TreeNode(350);
+        b.root.right.right.left = new TreeNode(4);
+        b.root.right.right.right = new TreeNode(500);
 
+        assertEquals("[100, 160, 125, 175, 200, 350, 500]",test.treeInsertion(a,b).toString());
+
+    }
 }
