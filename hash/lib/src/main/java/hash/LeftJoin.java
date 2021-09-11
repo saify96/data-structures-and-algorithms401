@@ -17,10 +17,10 @@ public class LeftJoin {
         hashTableTest2.put("ibraheem", "dereni2");
         hashTableTest2.put("Mohammda", "majd");
 
-        leftJoin2(hashTableTest, hashTableTest2);
+        leftJoin(hashTableTest, hashTableTest2);
     }
 
-    public static void leftJoin2(Hashtable left, Hashtable a) {
+    public static HashMap leftJoin(Hashtable left, Hashtable a) {
         HashMap<String, ArrayList<String>> leftJoinMap = new HashMap<>();
 
         Set<String> setOfKeys = left.keySet();
@@ -39,7 +39,8 @@ public class LeftJoin {
                 leftJoinMap.get(key).set(2, (String) a.get(key));
             }
         }
-        System.out.println(leftJoinMap);
+//        System.out.println(leftJoinMap);
+        return leftJoinMap;
     }
 }
 

@@ -1,8 +1,7 @@
 package hash;
 
-import hash.Tree.Tree;
-
 import java.util.NoSuchElementException;
+
 
 public class HashTable<K, T> {
     Node<K, T>[] tableArray;
