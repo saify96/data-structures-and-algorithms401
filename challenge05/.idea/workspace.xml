@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="278ce587-5bfb-4233-9deb-cdd556862cac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../hash/lib/src/main/java/hash/LeftJoin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hash/lib/src/main/java/hash/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hash/lib/src/main/java/hash/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hash/lib/src/main/java/hash/Tree/HashTreeIns.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hash/lib/src/main/java/hash/Tree/HashTreeIns.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +54,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/src/main/java/challenge05/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/src/main/java/challenge05/LinkedList.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1wAqedI5dH7gc80qdzNowp7w3E0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

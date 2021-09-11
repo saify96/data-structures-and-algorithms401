@@ -69,4 +69,7 @@ class LibraryTest {
         assertEquals("[100, 160, 125, 175, 200, 350, 500]",test.treeInsertion(a,b).toString());
 
     }
+
+    //hashTable Tests
+
 }
