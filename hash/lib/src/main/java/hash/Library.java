@@ -11,17 +11,15 @@ public class Library {
 //        System.out.println((int) 'C');
         System.out.println(test.GetHash("Ayyoub"));
 //        System.out.println(test.GetHash("Mohammad"));
-        test.addToHashTable("Ayyoub","saify");
+        test.addToHashTable("Ayyoub", "saify");
         System.out.println(test.tableArray[287].getValue());
         System.out.println("------");
-        test.addToHashTable("Ayyuob","keyyam");
+        test.addToHashTable("Ayyuob", "keyyam");
         System.out.println(test.tableArray[287].next.getValue());
         System.out.println("000000000");
 //        System.out.println(test.get("jj"));
         System.out.println(test.contain("Ayyoub"));
         System.out.println(test.contain("ayyoub"));
-
-
 
 
     }

@@ -38,16 +38,14 @@ public class LinkedList {
     }
 
     public void append(int value) {
+        Node newItem = new Node(value);
         Node current = head;
         if (current == null) {
-            Node newItem = new Node(value);
             head = newItem;
-        } else if (current != null) {
+        } else {
             while (current.next != null) {
                 current = current.next;
             }
-            Node newItem = new Node(value);
-            newItem.next = null;
             current.next = newItem;
         }
     }
@@ -143,11 +141,11 @@ public class LinkedList {
     public LinkedList reverseLinkedList(LinkedList x) {
         LinkedList reversedLinkedList = new LinkedList();
         Node current = x.head;
-        while (current.next != null) {
+        while (current != null) {
             reversedLinkedList.insert(current.value);
             current = current.next;
         }
-        reversedLinkedList.insert(current.value);
+//        reversedLinkedList.insert(current.value);
         return reversedLinkedList;
     }
 
@@ -168,11 +166,53 @@ public class LinkedList {
             current = current.next;
         }
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) != list.get(list.size() - i-1)) {
+            if (list.get(i) != list.get(list.size() - i - 1)) {
                 return false;
             }
         }
         return true;
     }
 
+
+//    public void duplicate (){
+//        Node current = head;
+//        while(current.next!=null){
+//            if (current.value==current.next.value){
+//                current.next=current.next.next;
+//            }else{
+//                current=current.next;
+//            }
+//        }
+//    }
+
+    public int max() {
+        int max = head.value;
+        Node current = head;
+        while (current != null) {
+            if (max < current.next.value) {
+                max = current.next.value;
+            }
+            current = current.next;
+        }
+        return max;
+    }
+
+    public Node removeValue(Node head, int value) {
+        Node current = head;
+        if (current.value == value) {
+            System.out.println("gabel " + current.value);
+            head = current.next;
+            current = current.next;
+            System.out.println("ba3ed " + current.value);
+        }
+//            current.next=null;
+        while (current.next != null) {
+            if (value == current.next.value) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
+        }
+        return head;
+    }
 }

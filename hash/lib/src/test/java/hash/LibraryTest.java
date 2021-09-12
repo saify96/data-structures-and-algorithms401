@@ -7,6 +7,8 @@ import hash.Tree.HashTreeIns;
 import hash.Tree.Tree;
 import hash.Tree.TreeNode;
 import org.junit.jupiter.api.Test;
+
+import java.util.Hashtable;
 import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,5 +70,34 @@ class LibraryTest {
 
         assertEquals("[100, 160, 125, 175, 200, 350, 500]",test.treeInsertion(a,b).toString());
 
+    }
+    //hashTable Tests
+    @Test void leftJoinTest() {
+        LeftJoin leftJoinTest = new LeftJoin();
+        Hashtable hashTableTest = new Hashtable();
+        hashTableTest.put("Mohammad", "Alsaify");
+        hashTableTest.put("Mohammda", "Alsaify");
+        hashTableTest.put("anas", "alramahi");
+        Hashtable hashTableTest2 = new Hashtable();
+        hashTableTest2.put("Mohammad", "Alsaify2");
+        hashTableTest2.put("anas", "alramahi2");
+        leftJoinTest.leftJoin(hashTableTest, hashTableTest2);
+        System.out.println();
+        assertEquals("{Mohammda=[Mohammda, Alsaify, NULL], Mohammad=[Mohammad, Alsaify, Alsaify2]}",leftJoinTest.leftJoin(hashTableTest, hashTableTest2).toString());
+    }
+    @Test void leftJoinTest2() {
+        LeftJoin leftJoinTest = new LeftJoin();
+        Hashtable hashTableTest = new Hashtable();
+        hashTableTest.put("Mohammad", "Alsaify");
+        hashTableTest.put("Mohammda", "Alsaify");
+        hashTableTest.put("anas", "alramahi");
+        hashTableTest.put("ibraheem", "dereni");
+        Hashtable hashTableTest2 = new Hashtable();
+        hashTableTest2.put("Mohammad", "Alsaify2");
+        hashTableTest2.put("anas", "alramahi2");
+        hashTableTest2.put("ibraheem", "dereni2");
+        hashTableTest2.put("Mohammda", "majd");
+        leftJoinTest.leftJoin(hashTableTest, hashTableTest2);
+        assertEquals("{anas=[anas, alramahi, alramahi2], ibraheem=[ibraheem, dereni, dereni2], Mohammda=[Mohammda, Alsaify, majd], Mohammad=[Mohammad, Alsaify, Alsaify2]}",leftJoinTest.leftJoin(hashTableTest, hashTableTest2).toString());
     }
 }

@@ -34,6 +34,8 @@ public class HashTreeIns<K, T> {
         b.root.right.right.right = new TreeNode(500);
         HashTreeIns test = new HashTreeIns();
         System.out.println(test.treeInsertion(a, b));
+        
+
     }
 
     HashTable<K, T> hashTable = new HashTable<>(1024);
@@ -70,6 +72,8 @@ public class HashTreeIns<K, T> {
         traverse(b.root, common);
         return common;
     }
+    
+
 }
 
 

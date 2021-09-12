@@ -38,14 +38,27 @@ public class Main {
         testLL2.append(7);
         testLL2.append(6);
         testLL2.append(7);
-        LinkedList newList = new LinkedList();
-        boolean potato = newList.equality(testLL2);
-        System.out.println(potato);
+//        LinkedList newList = new LinkedList();
+//        boolean potato = newList.equality(testLL2);
+//        System.out.println(potato);
+        System.out.println(testLL2.toString());
 
-//        newList = newList.checkLinkedList(testLL2);
+        testLL2.removeValue(testLL2.head, 5);
+        System.out.println(testLL2.toString());
+
+        //        newList = newList.checkLinkedList(testLL2);
 
 //        System.out.println(newList.toString());
+//        java.util.LinkedList<Integer> ll = new java.util.LinkedList<>();
+//        ll.add(5);
+//        ll.add(6);
+//        ll.get();
+//
+//        ll.remove(0);
+//        System.out.println(ll);
 
 
     }
+
+
 }
