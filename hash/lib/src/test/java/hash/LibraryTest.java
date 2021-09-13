@@ -77,7 +77,6 @@ class LibraryTest {
         Hashtable hashTableTest = new Hashtable();
         hashTableTest.put("Mohammad", "Alsaify");
         hashTableTest.put("Mohammda", "Alsaify");
-        hashTableTest.put("anas", "alramahi");
         Hashtable hashTableTest2 = new Hashtable();
         hashTableTest2.put("Mohammad", "Alsaify2");
         hashTableTest2.put("anas", "alramahi2");
