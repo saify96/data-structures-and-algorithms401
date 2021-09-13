@@ -31,15 +31,13 @@ public class LeftJoin {
             newArr.add("NULL");
             leftJoinMap.put(key, newArr);
         }
-
         Set<String> setOfKeys2 = a.keySet();
         for (String key : setOfKeys2) {
             if (leftJoinMap.containsKey(key)) {
-                leftJoinMap.get("00"+key);
                 leftJoinMap.get(key).set(2, (String) a.get(key));
             }
         }
-//        System.out.println(leftJoinMap);
+        System.out.println(leftJoinMap);
         return leftJoinMap;
     }
 }
