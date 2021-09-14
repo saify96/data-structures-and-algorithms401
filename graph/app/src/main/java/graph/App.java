@@ -6,12 +6,6 @@ package graph;
 public class App {
 
     public static void main(String[] args) {
-//        Node newNode1 = new Node("A");
-//        Node newNode2 = new Node("B");
-//        Node newNode3 = new Node("C");
-//        Node newNode4 = new Node("D");
-//        Node newNode5 = new Node("E");
-//        Node newNode6 = new Node("F");
         Graph graphTest = new Graph();
         graphTest.addNode("A");
         graphTest.addNode("B");
@@ -19,12 +13,19 @@ public class App {
         graphTest.addNode("D");
         graphTest.addNode("E");
         graphTest.addNode("F");
-        graphTest.addEdge((Node) graphTest.getNodes().get(1), (Node) graphTest.getNodes().get(2));
-        System.out.println(graphTest.getNeighbors((Node) graphTest.getNodes().get(1)));
 
-//        System.out.println(graphTest.getNeighbors(newNode1));
+        graphTest.addEdge((Node) graphTest.getNodes().get(0), (Node) graphTest.getNodes().get(1));
+        graphTest.addEdge((Node) graphTest.getNodes().get(1), (Node) graphTest.getNodes().get(2));
+        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(3));
+        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(4));
+        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(5));
+        graphTest.addEdge((Node) graphTest.getNodes().get(5), (Node) graphTest.getNodes().get(0));
+//        System.out.println(graphTest.getNeighbors((Node) graphTest.getNodes().get(1)));
+//        System.out.println("sdfsdfsdggfg");
 //        System.out.println(graphTest.getSize());
-        System.out.println(graphTest.graphElemnts1.toString());
-        System.out.println(graphTest.getSize());
+//        System.out.println(graphTest.graphElemnts1.toString());
+//        System.out.println(graphTest.getSize());
+        System.out.println(graphTest.breadthFirst((Node) graphTest.getNodes().get(2)));
     }
 }
+//[{E}, {C}, {A}, {B}, {D}, {F}]
