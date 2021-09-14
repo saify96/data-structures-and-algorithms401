@@ -6,12 +6,6 @@ package graph;
 public class App {
 
     public static void main(String[] args) {
-//        Node newNode1 = new Node("A");
-//        Node newNode2 = new Node("B");
-//        Node newNode3 = new Node("C");
-//        Node newNode4 = new Node("D");
-//        Node newNode5 = new Node("E");
-//        Node newNode6 = new Node("F");
         Graph graphTest = new Graph();
         graphTest.addNode("A");
         graphTest.addNode("B");
@@ -34,3 +28,4 @@ public class App {
         System.out.println(graphTest.breadthFirst((Node) graphTest.getNodes().get(2)));
     }
 }
+//[{E}, {C}, {A}, {B}, {D}, {F}]

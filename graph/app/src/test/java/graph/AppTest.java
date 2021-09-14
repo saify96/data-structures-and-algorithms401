@@ -26,4 +26,28 @@ class AppTest {
         assertEquals("{A}",classUnderTest.addNode("A").toString());
 
     }
+
+    @Test
+    void breadthFirst() {
+        Graph graphTest = new Graph();
+        graphTest.addNode("A");
+        graphTest.addNode("B");
+        graphTest.addNode("C");
+        graphTest.addNode("D");
+        graphTest.addNode("E");
+        graphTest.addNode("F");
+
+        graphTest.addEdge((Node) graphTest.getNodes().get(0), (Node) graphTest.getNodes().get(1));
+        graphTest.addEdge((Node) graphTest.getNodes().get(1), (Node) graphTest.getNodes().get(2));
+        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(3));
+        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(4));
+        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(5));
+        graphTest.addEdge((Node) graphTest.getNodes().get(5), (Node) graphTest.getNodes().get(0));
+
+        assertEquals("[{E}, {C}, {A}, {B}, {D}, {F}]",graphTest.breadthFirst((Node) graphTest.getNodes().get(2)).toString());
+//        assertEquals("[{D}, {B}, {A}, {C}, {E}, {F}]",graphTest.breadthFirst((Node) graphTest.getNodes().get(2)).toString());
+//        assertEquals("[{A}, {D}, {F}, {C}, {B}, {E}]",graphTest.breadthFirst((Node) graphTest.getNodes().get(5)).toString());
+
+    }
+
 }

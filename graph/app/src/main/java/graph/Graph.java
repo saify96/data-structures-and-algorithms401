@@ -14,9 +14,9 @@ public class Graph<v> {
     }
 
     public void addEdge(Node<v> A, Node<v> B) {
-        System.out.println("typeOf A value is " + A.value.getClass().getSimpleName());
-        System.out.println(A.value);
-        System.out.println(graphElemnts1.containsKey(A));
+//        System.out.println("typeOf A value is " + A.value.getClass().getSimpleName());
+//        System.out.println(A.value);
+//        System.out.println(graphElemnts1.containsKey(A));
         if (graphElemnts1.containsKey(A) && graphElemnts1.containsKey(B)) {
             graphElemnts1.get(A).add(B);
         }
@@ -41,24 +41,18 @@ public class Graph<v> {
 
         breadth.add(a);
         visited.add(a);
-        System.out.println("1");
         while (!breadth.isEmpty()) {
             Node front = breadth.poll();
             nodes.add(front);
-
             if (this.getNeighbors(front).size()>0){
                 for (Object neighbor : this.getNeighbors(front)) {
-                    System.out.println("3");
                     if (!visited.contains(neighbor)){
-                        System.out.println("4");
-
                         visited.add((Node<v>) neighbor);
                         breadth.add((Node<v>) neighbor);
                     }
                 }
             }
         }
-
         return nodes;
     }
 }
