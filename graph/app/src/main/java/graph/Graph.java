@@ -1,6 +1,5 @@
 package graph;
 
-
 import java.util.*;
 
 public class Graph<v> {
@@ -14,9 +13,6 @@ public class Graph<v> {
     }
 
     public void addEdge(Node<v> A, Node<v> B) {
-//        System.out.println("typeOf A value is " + A.value.getClass().getSimpleName());
-//        System.out.println(A.value);
-//        System.out.println(graphElemnts1.containsKey(A));
         if (graphElemnts1.containsKey(A) && graphElemnts1.containsKey(B)) {
             graphElemnts1.get(A).add(B);
         }
@@ -34,7 +30,7 @@ public class Graph<v> {
         return graphElemnts1.size();
     }
 
-    public List<Node<v>> breadthFirst(Node a) {
+    public List<Node<v>> breadthFirst(Node<v> a) {
         List<Node<v>> nodes = new ArrayList<>();
         Queue<Node<v>> breadth = new LinkedList<>();
         Set<Node<v>> visited = new HashSet<>();
@@ -42,7 +38,7 @@ public class Graph<v> {
         breadth.add(a);
         visited.add(a);
         while (!breadth.isEmpty()) {
-            Node front = breadth.poll();
+            Node<v> front = breadth.remove();
             nodes.add(front);
             if (this.getNeighbors(front).size()>0){
                 for (Object neighbor : this.getNeighbors(front)) {

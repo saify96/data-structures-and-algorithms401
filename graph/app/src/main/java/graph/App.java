@@ -23,7 +23,7 @@ public class App {
 //        System.out.println(graphTest.getNeighbors((Node) graphTest.getNodes().get(1)));
 //        System.out.println("sdfsdfsdggfg");
 //        System.out.println(graphTest.getSize());
-//        System.out.println(graphTest.graphElemnts1.toString());
+        System.out.println(graphTest.graphElemnts1.toString());
 //        System.out.println(graphTest.getSize());
         System.out.println(graphTest.breadthFirst((Node) graphTest.getNodes().get(2)));
     }
