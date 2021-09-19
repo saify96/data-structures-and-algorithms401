@@ -3,18 +3,28 @@ package graph;
 import java.util.*;
 
 public class Graph<v> {
-    HashMap<Node<v>, ArrayList<Node<v>>> graphElemnts1 = new HashMap<>();
+    HashMap<Node<v>, HashMap<Node<v>, Double>> graphElemnts1 = new HashMap<>();
 
     public Node<v> addNode(v value) {
         Node<v> newNode = new Node<>(value);
-        ArrayList<Node<v>> linkedNodes = new ArrayList<>();
-        graphElemnts1.put(newNode, linkedNodes);
+//        ArrayList<Node<v>> linkedNodes = new ArrayList<>();
+        HashMap<Node<v>, Double> valueHashMap = new HashMap<>();
+        graphElemnts1.put(newNode, valueHashMap);
         return newNode;
     }
 
     public void addEdge(Node<v> A, Node<v> B) {
         if (graphElemnts1.containsKey(A) && graphElemnts1.containsKey(B)) {
-            graphElemnts1.get(A).add(B);
+//            graphElemnts1.get(A).add(B);
+            graphElemnts1.get(A).put(B, null);
+//            graphElemnts1.get(B).put(A,null);
+        }
+    }
+
+    public void addEdge(Node<v> A, Node<v> B, Double w) {
+        if (graphElemnts1.containsKey(A) && graphElemnts1.containsKey(B)) {
+//            graphElemnts1.get(A).add(B);
+            graphElemnts1.get(A).put(B, w);
         }
     }
 
@@ -23,7 +33,8 @@ public class Graph<v> {
     }
 
     public List<Node<v>> getNeighbors(Node<v> A) {
-        return graphElemnts1.get(A);
+//        return graphElemnts1.get(A).keySet();
+        return new ArrayList<>(graphElemnts1.get(A).keySet());
     }
 
     public int getSize() {
@@ -40,9 +51,9 @@ public class Graph<v> {
         while (!breadth.isEmpty()) {
             Node<v> front = breadth.remove();
             nodes.add(front);
-            if (this.getNeighbors(front).size()>0){
+            if (this.getNeighbors(front).size() > 0) {
                 for (Object neighbor : this.getNeighbors(front)) {
-                    if (!visited.contains(neighbor)){
+                    if (!visited.contains(neighbor)) {
                         visited.add((Node<v>) neighbor);
                         breadth.add((Node<v>) neighbor);
                     }
@@ -51,24 +62,17 @@ public class Graph<v> {
         }
         return nodes;
     }
-}
 
-//
-//    ALGORITHM BreadthFirst(vertex)
-//    DECLARE nodes <-- new List()
-//        DECLARE breadth <-- new Queue()
-//        DECLARE visited <-- new Set()
-//
-//        breadth.Enqueue(vertex)
-//        visited.Add(vertex)
-//
-//        while (breadth is not empty)
-//        DECLARE front <-- breadth.Dequeue()
-//        nodes.Add(front)
-//
-//        for each child in front.Children
-//        if(child is not visited)
-//        visited.Add(child)
-//        breadth.Enqueue(child)
-//
-//        return nodes;
+    public String businessTrip(Graph graph, List<Node<v>> citiesName) {
+        Double cost = 0.0;
+        boolean flag = false;
+        for (int i = 0; i < citiesName.size() - 1; i++) {
+            if (graph.graphElemnts1.containsKey(citiesName.get(i)) && this.graphElemnts1.get(citiesName.get(i)).containsKey(citiesName.get(i + 1))) {
+                flag = true;
+                cost += this.graphElemnts1.get(citiesName.get(i)).get(citiesName.get(i + 1));
+            }
+        }
+        String result = flag + ", $" + cost;
+        return result;
+    }
+}
