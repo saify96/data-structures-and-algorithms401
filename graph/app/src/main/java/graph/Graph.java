@@ -75,4 +75,63 @@ public class Graph<v> {
         String result = flag + ", $" + cost;
         return result;
     }
+
+    public List<Node<v>> depthFirst(Node<v> root) {
+        Stack depthFirstStack = new Stack();
+        List depthFirstList = new ArrayList();
+        Set<Node<v>> visited = new HashSet<>();
+        if (root == null) return depthFirstList;
+        depthFirstStack.add(root);
+        visited.add(root);
+        while (!depthFirstStack.isEmpty()) {
+            Node top = (Node) depthFirstStack.pop();
+            depthFirstList.add(top.value);
+            if (this.getNeighbors(top).size() > 0) {
+                for (Object neighbor : this.getNeighbors(top)) {
+                    if (!visited.contains(neighbor)) {
+                        visited.add((Node<v>) neighbor);
+                        depthFirstStack.add(neighbor);
+                    }
+                }
+            }
+        }
+        return depthFirstList;
+    }
+
 }
+
+
+//     public List<Node<v>> depthFirst(Node<v> root) {
+//         Stack<Node<v>> depthFirstStack = new Stack<>();
+//         List<Node<v>> depthFirstList = new ArrayList();
+//         Set<Node<v>> visited = new HashSet<>();
+//         if (root == null) return depthFirstList;
+//         depthFirstStack.add(root);
+//         while (!depthFirstStack.isEmpty()) {
+//             Node top =  depthFirstStack.peek();
+//             System.out.println("000" + top.value);
+// //            if (this.getNeighbors(top).size() < 0) {
+// //                depthFirstStack.pop();
+// //
+// //            }
+
+//             if (this.getNeighbors(top).size() > 0) {
+//                 for (Object neighbor : this.getNeighbors(top)) {
+//                     System.out.println("111" + top.value);
+
+//                     if (!visited.contains(neighbor)) {
+//                         visited.add(top);
+//                         depthFirstList.add(top);
+//                         depthFirstStack.add((Node<v>) neighbor);
+//                         System.out.println("add" + top.value);
+//                     }
+
+//                 }
+//             }else{
+//                 System.out.println("pop" + depthFirstStack.peek().value);
+
+//                 depthFirstStack.pop();
+//             }
+//         }
+//         return depthFirstList;
+//     }

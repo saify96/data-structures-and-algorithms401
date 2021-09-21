@@ -24,12 +24,33 @@ public class App {
         List<Node<String>> cities3 = Arrays.asList(Node1);
         List<Node<String>> cities4 = Arrays.asList(Node4,Node5);
 
-        System.out.println(graphTest.businessTrip(graphTest,cities1));
-        System.out.println(graphTest.businessTrip(graphTest,cities2));
-        System.out.println(graphTest.businessTrip(graphTest,cities3));
-        System.out.println(graphTest.businessTrip(graphTest,cities4));
+//        System.out.println(graphTest.businessTrip(graphTest,cities1));
+//        System.out.println(graphTest.businessTrip(graphTest,cities2));
+//        System.out.println(graphTest.businessTrip(graphTest,cities3));
+//        System.out.println(graphTest.businessTrip(graphTest,cities4));
 
-//        System.out.println(graphTest.breadthFirst(Node1));
+//      System.out.println(graphTest.breadthFirst(Node1));
 
+        Graph<String> graphTest2 = new Graph<>();
+        Node<String> nodeA = graphTest2.addNode("A");
+        Node<String> nodeB = graphTest2.addNode("B");
+        Node<String> nodeC = graphTest2.addNode("C");
+        Node<String> nodeD = graphTest2.addNode("D");
+        Node<String> nodeE = graphTest2.addNode("E");
+        Node<String> nodeF = graphTest2.addNode("F");
+        Node<String> nodeG = graphTest2.addNode("G");
+        Node<String> nodeH = graphTest2.addNode("H");
+
+        graphTest2.addEdge(nodeA, nodeB);
+        graphTest2.addEdge(nodeA, nodeD);
+        graphTest2.addEdge(nodeB, nodeD);
+        graphTest2.addEdge(nodeB, nodeC);
+        graphTest2.addEdge(nodeC, nodeG);
+        graphTest2.addEdge(nodeD, nodeE);
+        graphTest2.addEdge(nodeD, nodeH);
+        graphTest2.addEdge(nodeD, nodeF);
+        graphTest2.addEdge(nodeH, nodeF);
+
+        System.out.println(graphTest2.depthFirst(nodeA).toString());
     }
 }
