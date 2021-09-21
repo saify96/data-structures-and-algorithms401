@@ -3,29 +3,54 @@
  */
 package graph;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
-        Graph graphTest = new Graph();
-        graphTest.addNode("A");
-        graphTest.addNode("B");
-        graphTest.addNode("C");
-        graphTest.addNode("D");
-        graphTest.addNode("E");
-        graphTest.addNode("F");
+        Graph<String> graphTest = new Graph<>();
+        Node<String> Node1 = graphTest.addNode("A");
+        Node<String> Node2 = graphTest.addNode("B");
+        Node<String> Node3 = graphTest.addNode("C");
+        Node<String> Node4 = graphTest.addNode("D");
+        Node<String> Node5 = graphTest.addNode("E");
+        graphTest.addEdge(Node1, Node2, 5.00);
+        graphTest.addEdge(Node2, Node5, 10.00);
+        graphTest.addEdge(Node1, Node3, 5.00);
+        graphTest.addEdge(Node3, Node4, 5.00);
+        List<Node<String>> cities1 = Arrays.asList(Node1,Node2,Node5);
+        List<Node<String>> cities2 = Arrays.asList(Node1,Node3,Node4);
+        List<Node<String>> cities3 = Arrays.asList(Node1);
+        List<Node<String>> cities4 = Arrays.asList(Node4,Node5);
 
-        graphTest.addEdge((Node) graphTest.getNodes().get(0), (Node) graphTest.getNodes().get(1));
-        graphTest.addEdge((Node) graphTest.getNodes().get(1), (Node) graphTest.getNodes().get(2));
-        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(3));
-        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(4));
-        graphTest.addEdge((Node) graphTest.getNodes().get(2), (Node) graphTest.getNodes().get(5));
-        graphTest.addEdge((Node) graphTest.getNodes().get(5), (Node) graphTest.getNodes().get(0));
-//        System.out.println(graphTest.getNeighbors((Node) graphTest.getNodes().get(1)));
-//        System.out.println("sdfsdfsdggfg");
-//        System.out.println(graphTest.getSize());
-        System.out.println(graphTest.graphElemnts1.toString());
-//        System.out.println(graphTest.getSize());
-        System.out.println(graphTest.breadthFirst((Node) graphTest.getNodes().get(2)));
+//        System.out.println(graphTest.businessTrip(graphTest,cities1));
+//        System.out.println(graphTest.businessTrip(graphTest,cities2));
+//        System.out.println(graphTest.businessTrip(graphTest,cities3));
+//        System.out.println(graphTest.businessTrip(graphTest,cities4));
+
+//      System.out.println(graphTest.breadthFirst(Node1));
+
+        Graph<String> graphTest2 = new Graph<>();
+        Node<String> nodeA = graphTest2.addNode("A");
+        Node<String> nodeB = graphTest2.addNode("B");
+        Node<String> nodeC = graphTest2.addNode("C");
+        Node<String> nodeD = graphTest2.addNode("D");
+        Node<String> nodeE = graphTest2.addNode("E");
+        Node<String> nodeF = graphTest2.addNode("F");
+        Node<String> nodeG = graphTest2.addNode("G");
+        Node<String> nodeH = graphTest2.addNode("H");
+
+        graphTest2.addEdge(nodeA, nodeB);
+        graphTest2.addEdge(nodeA, nodeD);
+        graphTest2.addEdge(nodeB, nodeD);
+        graphTest2.addEdge(nodeB, nodeC);
+        graphTest2.addEdge(nodeC, nodeG);
+        graphTest2.addEdge(nodeD, nodeE);
+        graphTest2.addEdge(nodeD, nodeH);
+        graphTest2.addEdge(nodeD, nodeF);
+        graphTest2.addEdge(nodeH, nodeF);
+
+        System.out.println(graphTest2.depthFirst(nodeA).toString());
     }
 }
-//[{E}, {C}, {A}, {B}, {D}, {F}]

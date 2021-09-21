@@ -5,29 +5,52 @@ package graph;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    // Implementation tests
     @Test
-    void graphTests() {
-        Graph classUnderTest = new Graph();
-        classUnderTest.addNode("A");
+    void graphTests1() {
+        Graph<String> classUnderTest = new Graph();
+        Node<String> node1 = classUnderTest.addNode("A");
         assertEquals("[{A}]", classUnderTest.getNodes().toString());
-
-        classUnderTest.addNode("B");
-        classUnderTest.addEdge((Node) classUnderTest.getNodes().get(0), (Node) classUnderTest.getNodes().get(1));
-        assertEquals("{{A}=[{B}], {B}=[]}", classUnderTest.graphElemnts1.toString());
-
-        assertEquals("[{A}, {B}]", classUnderTest.getNodes().toString());
-
-        assertEquals("[{B}]", classUnderTest.getNeighbors((Node) classUnderTest.getNodes().get(0)).toString());
-
-        assertEquals(2, classUnderTest.getSize());
-
         assertEquals("{A}", classUnderTest.addNode("A").toString());
-
     }
 
+    @Test
+    void graphTests2() {
+        Graph<String> classUnderTest = new Graph();
+        Node<String> node1 = classUnderTest.addNode("A");
+        Node<String> node2 = classUnderTest.addNode("B");
+        classUnderTest.addEdge(node1, node2);
+        assertEquals("[{B}]", classUnderTest.getNeighbors(node1).toString());
+    }
+
+    @Test
+    void graphTests3() {
+        Graph<String> classUnderTest = new Graph();
+        Node<String> node1 = classUnderTest.addNode("A");
+        Node<String> node2 = classUnderTest.addNode("B");
+        classUnderTest.addEdge(node1, node2);
+
+        assertEquals("[{B}, {A}]", classUnderTest.getNodes().toString());
+        assertEquals(2, classUnderTest.getSize());
+    }
+
+    @Test
+    void graphTests4() {
+        Graph<String> classUnderTest = new Graph();
+        Node<String> node1 = classUnderTest.addNode("A");
+        Node<String> node2 = classUnderTest.addNode("B");
+        classUnderTest.addEdge(node1, node2, 100.0);
+
+        assertEquals(100.0, classUnderTest.graphElemnts1.get(node1).get(node2));
+    }
+
+    // BreadthFirst tests
     @Test
     void breadthFirst() {
         Graph<String> graphTest = new Graph<>();
@@ -38,26 +61,76 @@ class AppTest {
         Node<String> node5 = graphTest.addNode("E");
         Node<String> node6 = graphTest.addNode("F");
 
-//        graphTest.addNode("B");
-//        graphTest.addNode("C");
-//        graphTest.addNode("D");
-//        graphTest.addNode("E");
-//        graphTest.addNode("F");
-
         graphTest.addEdge(node1, node2);
         graphTest.addEdge(node2, node3);
         graphTest.addEdge(node3, node4);
-        graphTest.addEdge(node3, node5);
-        graphTest.addEdge(node3, node6);
-        graphTest.addEdge(node6, node1);
+        graphTest.addEdge(node4, node5);
+        graphTest.addEdge(node5, node6);
+        graphTest.addEdge(node6, node5);
 
-        assertEquals("[{F}, {C}, {B}, {E}, {A}, {D}]", graphTest.breadthFirst(node1).toString());
-//        assertEquals("[{D}, {B}, {A}, {C}, {E}, {F}]",graphTest.breadthFirst((Node) graphTest.getNodes().get(2)).toString());
-//        assertEquals("[{A}, {D}, {F}, {C}, {B}, {E}]",graphTest.breadthFirst((Node) graphTest.getNodes().get(5)).toString());
-//[{A}, {E}, {B}, {C}, {D}, {F}]
-//        [{F}, {C}, {B}, {E}, {A}, {D}]
+        assertEquals("[{A}, {B}, {C}, {D}, {E}, {F}]", graphTest.breadthFirst(node1).toString());
+        assertEquals("[{B}, {C}, {D}, {E}, {F}]", graphTest.breadthFirst(node2).toString());
+        assertEquals("[{F}, {E}]", graphTest.breadthFirst(node6).toString());
+    }
+
+    // Code challenge 37
+    @Test
+    public void testBusinessTrip() {
+        Graph<String> graphTest = new Graph<>();
+        Node<String> Pandora = graphTest.addNode("Pandora");
+        Node<String> Arendelle = graphTest.addNode("Arendelle");
+        Node<String> Metroville = graphTest.addNode("Metroville");
+        Node<String> Monstroplolis = graphTest.addNode("Monstroplolis");
+        Node<String> Narnia = graphTest.addNode("Narnia");
+        Node<String> Naboo = graphTest.addNode("Naboo");
+
+        graphTest.addEdge(Pandora, Arendelle, 150.0);
+        graphTest.addEdge(Arendelle, Metroville, 99.0);
+        graphTest.addEdge(Arendelle, Monstroplolis, 42.0);
+        graphTest.addEdge(Metroville, Narnia, 37.0);
+        graphTest.addEdge(Metroville, Pandora, 82.0);
+        graphTest.addEdge(Metroville, Naboo, 26.0);
+        graphTest.addEdge(Monstroplolis, Metroville, 105.0);
+        graphTest.addEdge(Monstroplolis, Naboo, 73.0);
+        graphTest.addEdge(Naboo, Narnia, 250.0);
+
+        List<Node<String>> cities1 = Arrays.asList(Metroville, Pandora);
+        List<Node<String>> cities2 = Arrays.asList(Arendelle, Monstroplolis, Naboo);
+        List<Node<String>> cities3 = Arrays.asList(Naboo, Pandora);
+        List<Node<String>> cities4 = Arrays.asList(Narnia, Arendelle, Naboo);
+
+        assertEquals("true, $82.0", graphTest.businessTrip(graphTest, cities1));
+        assertEquals("true, $115.0", graphTest.businessTrip(graphTest, cities2));
+        assertEquals("false, $0.0", graphTest.businessTrip(graphTest, cities3));
+        assertEquals("false, $0.0", graphTest.businessTrip(graphTest, cities4));
+    }
+
+    // Code challenge 38
+    @Test
+    void firstDepth() {
+        Graph<String> graphTest2 = new Graph<>();
+        Node<String> nodeA = graphTest2.addNode("A");
+        Node<String> nodeB = graphTest2.addNode("B");
+        Node<String> nodeC = graphTest2.addNode("C");
+        Node<String> nodeD = graphTest2.addNode("D");
+        Node<String> nodeE = graphTest2.addNode("E");
+        Node<String> nodeF = graphTest2.addNode("F");
+        Node<String> nodeG = graphTest2.addNode("G");
+        Node<String> nodeH = graphTest2.addNode("H");
+
+        graphTest2.addEdge(nodeA, nodeB);
+        graphTest2.addEdge(nodeA, nodeD);
+        graphTest2.addEdge(nodeB, nodeD);
+        graphTest2.addEdge(nodeB, nodeC);
+        graphTest2.addEdge(nodeC, nodeG);
+        graphTest2.addEdge(nodeD, nodeE);
+        graphTest2.addEdge(nodeD, nodeH);
+        graphTest2.addEdge(nodeD, nodeF);
+        graphTest2.addEdge(nodeH, nodeF);
+
+        assertEquals("[A, B, C, G, D, F, E, H]", graphTest2.depthFirst(nodeA).toString());
     }
 
 }
 
-//{{D}=[{F}], {F}=[{E}], {E}=[{C}, {A}, {B}], {C}=[], {A}=[], {B}=[{D}]}
+//[A, B, C, G, D, F, E, H]
